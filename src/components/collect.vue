@@ -30,7 +30,16 @@
 </template>
 <script>
     export default {
-        name: 'collect'
+        name: 'collect',
+        data() {
+            return {
+                
+            }
+        },
+        created: function() {
+            console.log(this.$route.query.id)
+        }
+
     }
 </script>
 <style scoped lang="scss">

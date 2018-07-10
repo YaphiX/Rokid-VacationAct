@@ -25,15 +25,19 @@
       <div class="u-scroller">
         <div class="u-peiqipig">
           <img class="peiqi" src="../assets/peiqipig.png">
+          <img class="process" src="../assets/select.png" @click="selectMission(1)">
         </div>
         <div class="u-wangwangdog">
           <img class="wangwangdog" src="../assets/wangwangdog.png">
+          <img class="process" src="../assets/select.png" @click="selectMission(2)">
         </div>
         <div class="u-seabedteam">
           <img class="seabedteam" src="../assets/seabedteam.png">
+          <img class="process" src="../assets/select.png" @click="selectMission(3)">
         </div>
         <div class="u-baolihorse">
           <img class="baolihorse" src="../assets/baolihorse.png">
+          <img class="process" src="../assets/select.png" @click="selectMission(4)">
         </div>
       </div>
     </div>
@@ -59,9 +63,9 @@
       <div class="m-confirmRole" v-show="confirmRole">
         <div class="u-confirmRole J-confirmRole">
           <img class="confirmRole" src="../assets/confirmRole.png">
-          <div class="confrimTip">确定选择角色为“汪汪队”么？</div>
+          <div class="confrimTip">{{confrimRoleText}}</div>
           <div class="cancel" @click="confirmRole=false">取消</div>
-          <div class="yes" @click="confirmRole=false">确定</div>
+          <div class="yes" @click="confirmRole=false;lockMission()">确定</div>
         </div>
       </div>
     </transition>
@@ -74,8 +78,10 @@ export default {
   data () {
     return {
       childNum: 12312,
+      missionId: 0,
       ruleDialogIsShwo: false,
-      confirmRole: false
+      confirmRole: false,
+      confrimRoleText: '123'
     }
   },
   mounted: function() {
@@ -83,8 +89,40 @@ export default {
       event.stopPropagation(); 
     },false)
   },
-  method: {
-    
+  computed: {
+
+  },
+  methods: {
+    changText(text) {
+      this.confrimRoleText = text
+    },
+    selectMission(id) {
+      switch(id) {
+        case 1: 
+          this.changText("确定选择角色为“小猪佩奇”么？")
+          this.missionId = 1;
+          this.confirmRole = true;
+          break;
+        case 2: 
+          this.changText("确定选择角色为“汪汪队”么？")
+          this.missionId = 2;
+          this.confirmRole = true;
+          break;
+        case 3: 
+          this.changText("确定选择角色为“海底小纵队”么？")
+          this.missionId = 3;
+          this.confirmRole = true;
+          break;
+        case 4: 
+          this.changText("确定选择角色为“小马宝莉”么？")
+          this.missionId = 4;
+          this.confirmRole = true;
+          break;
+      }
+    },
+    lockMission() {
+      this.$router.push({ name: 'collect', query: { id: this.missionId }});
+    }
   }
 }
 </script>
@@ -156,6 +194,12 @@ export default {
           width: 4.48rem;
         }
         // width: 4.24rem;
+      }
+      .process {
+          position: absolute;
+          width: 2.74rem;
+          left: 0.85rem;
+          top: 4.86rem;
       }
       .u-peiqipig {
         position: relative;
