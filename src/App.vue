@@ -15,6 +15,6 @@ export default {
   background: url('./assets/background.png');
   background-size:100% 4.82rem;
   background-repeat: no-repeat;
-  background-position: left top -1.626rem;
+  background-position: left top -1rem;
 } 
 </style>

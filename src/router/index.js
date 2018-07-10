@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/components/index'
-import Test1 from '@/components/Test1'
+import collect from '@/components/collect'
 import Test2 from '@/components/Test2'
 
 Vue.use(Router)
@@ -13,9 +13,9 @@ export default new Router({
       name: 'index',
       component: index
     }, {
-      path: '/test1',
-      name: 'Test1',
-      component: Test1
+      path: '/collect',
+      name: 'collect',
+      component: collect
     }, {
       path: '/test2',
       name: 'Test2',

@@ -20,7 +20,7 @@
     <div class="m-selecttoy">
       <div class="u-btnrule">
         <img class="btn" src="../assets/selecttoybtn.png">
-        <img class="rule" src="../assets/rulebtn.png">
+        <img class="rule" src="../assets/rulebtn.png" @click="ruleDialogIsShwo=true">
       </div>
       <div class="u-scroller">
         <div class="u-peiqipig">
@@ -44,10 +44,27 @@
       <div class="u-libaobtn">
         <img class="libaobtn" src="../assets/libaobtn.png">
       </div>
-      <div class="u-libaoduolaameng">
-        <img class="libaoduolaameng" src="../assets/libaoduolaameng.png">
+      <div class="u-libao">
+        <img class="libao" src="../assets/libao.png">
       </div>
     </div>
+    <transition name="fade">
+      <div class="m-ruledialog" v-show="ruleDialogIsShwo" @click="ruleDialogIsShwo=false">
+        <div class="u-ruledialog J-ruledialog">
+          <img class="ruledialog" src="../assets/ruledialog.png">
+        </div>
+      </div>
+    </transition>
+    <transition name="fade">
+      <div class="m-confirmRole" v-show="confirmRole">
+        <div class="u-confirmRole J-confirmRole">
+          <img class="confirmRole" src="../assets/confirmRole.png">
+          <div class="confrimTip">确定选择角色为“汪汪队”么？</div>
+          <div class="cancel" @click="confirmRole=false">取消</div>
+          <div class="yes" @click="confirmRole=false">确定</div>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -56,8 +73,18 @@ export default {
   name: 'index',
   data () {
     return {
-      childNum: 12312
+      childNum: 12312,
+      ruleDialogIsShwo: false,
+      confirmRole: false
     }
+  },
+  mounted: function() {
+    document.getElementsByClassName("J-ruledialog")[0].addEventListener("click", function(event){
+      event.stopPropagation(); 
+    },false)
+  },
+  method: {
+    
   }
 }
 </script>
@@ -162,14 +189,77 @@ export default {
         width: 3.374rem;
       }
     }
-    .u-libaoduolaameng {
+    .u-libao {
       position: absolute;
       left: 0.46rem;
       right: 0.46rem;
-      .libaoduolaameng {
+      .libao {
         width: 100%;
       }
     }
+  }
+  .m-ruledialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0,0,0.4);
+    .u-ruledialog {
+      position: relative;
+      top: 4.3rem;
+      text-align: center;
+      .ruledialog {
+        width: 8.933rem;
+      }
+    }
+  }
+  .m-confirmRole {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0,0,0.4);
+    .u-confirmRole {
+      position: relative;
+      top: 4.3rem;
+      text-align: center;
+      .confrimTip {
+        position: relative;
+        top: -3.74rem;
+        font-size: 0.4rem;
+      }
+      .confirmRole {
+        width: 8.933rem;
+      }
+      .cancel {
+        position: relative;
+        left: 0.533rem;
+        top: -1.98rem;
+        width: 4.48rem;
+        line-height: 1.3rem;
+        font-size: 0.4rem;
+        color: #9b9b9b;
+        // background-color: blue;
+      }
+      .yes {
+        position: relative;
+        width: 4.45rem;
+        left: 5.013rem;
+        top: -3.28rem;
+        line-height: 1.3rem;
+        font-size: 0.4rem;
+        color: #f5a623;
+        // background-color: red;
+      }
+    }
+  }
+  .fade-enter-active, .fade-leave-active {
+  transition: opacity .3s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+    opacity: 0
   }
 }
 
