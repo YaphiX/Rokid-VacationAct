@@ -72,7 +72,7 @@
     <transition name="fade">
       <div class="m-congradulationDialog" v-show="congradulationDialogIsShow">
         <div class="u-congradulationDialog">
-          <img class="congradulationDialog" src="../assets/gotPeiqi.png">
+          <img class="congradulationDialog" src="../assets/gotBaoli.png">
           <div class="yes" @click="congradulationDialogIsShow=false;">确认收货地址</div>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default {
       missionId: 0,
       ruleDialogIsShwo: false,
       confirmRole: false,
-      congradulationDialogIsShow: false,
+      congradulationDialogIsShow: true,
       confrimRoleText: '123'
     }
   },
@@ -157,7 +157,7 @@ export default {
       .u-childnum {
         text-align: center;
         .u-childnumtext {
-          margin-top: 0.68rem;
+          margin-top: 0.76rem;
           p {
             display: inline-block;
             color: #666666;
