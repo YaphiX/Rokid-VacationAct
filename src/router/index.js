@@ -13,7 +13,7 @@ export default new Router({
       name: 'index',
       component: index
     }, {
-      path: '/collect',
+      path: '/collect/:id',
       name: 'collect',
       component: collect
     }, {

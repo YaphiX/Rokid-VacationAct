@@ -69,6 +69,14 @@
         </div>
       </div>
     </transition>
+    <transition name="fade">
+      <div class="m-congradulationDialog" v-show="congradulationDialogIsShow">
+        <div class="u-congradulationDialog">
+          <img class="congradulationDialog" src="../assets/gotPeiqi.png">
+          <div class="yes" @click="congradulationDialogIsShow=false;">确认收货地址</div>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -81,6 +89,7 @@ export default {
       missionId: 0,
       ruleDialogIsShwo: false,
       confirmRole: false,
+      congradulationDialogIsShow: false,
       confrimRoleText: '123'
     }
   },
@@ -88,9 +97,6 @@ export default {
     document.getElementsByClassName("J-ruledialog")[0].addEventListener("click", function(event){
       event.stopPropagation(); 
     },false)
-  },
-  computed: {
-
   },
   methods: {
     changText(text) {
@@ -121,7 +127,7 @@ export default {
       }
     },
     lockMission() {
-      this.$router.push({ name: 'collect', query: { id: this.missionId }});
+      this.$router.push({ name: 'collect', params: { id: this.missionId }});
     }
   }
 }
@@ -296,6 +302,31 @@ export default {
         font-size: 0.4rem;
         color: #f5a623;
         // background-color: red;
+      }
+    }
+  }
+  .m-congradulationDialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0,0,0.4);
+    .u-congradulationDialog {
+      position: relative;
+      top: 2rem;
+      text-align: center;
+      .congradulationDialog {
+        width: 8.933rem;
+      }
+      .yes {
+        position: relative;
+        top: -1.5rem;
+        line-height: 1.3rem;
+        text-align: center;
+        font-size: 0.4rem;
+        color: #fe5c59;
+        // background-color: yellow;
       }
     }
   }
