@@ -13,8 +13,8 @@
         <div class="m-todayMission">
             <div class="u-todayMission">
                 <img class="todayMission" src="../assets/todayMission.png">
-                <div class="taskDesc">{{taskDesc}}</div>
-                <div class="taskName">“{{taskName}}”</div>
+                <div class="taskDesc">{{todayTaskDesc}}</div>
+                <div class="taskName">“{{todayTaskName}}”</div>
                 <img v-if="hadComplete==false" class="missionprocess" src="../assets/missionprocess0.png">
                 <img v-if="hadComplete==true" class="missionprocess" src="../assets/missionprocess1.png">
             </div>
@@ -34,10 +34,10 @@
             <div class="m-getChip" v-show="getChipDialogIsShow">
                 <div class="u-getChip">
                     <img class="chip" src="../assets/peiqichip.png">
-                    <img v-if="taskPid==1" class="getChip" src="../assets/getPeiqiChip.png">
-                    <img v-if="taskPid==2" class="getChip" src="../assets/getWangwangDogChip.png">
-                    <img v-if="taskPid==3" class="getChip" src="../assets/getSeaBedTeamChip.png">
-                    <img v-if="taskPid==4" class="getChip" src="../assets/getBaoliChip.png">
+                    <img v-if="dialogType==0" class="getChip" src="../assets/getPeiqiChip.png">
+                    <img v-if="dialogType==1" class="getChip" src="../assets/getWangwangDogChip.png">
+                    <img v-if="dialogType==2" class="getChip" src="../assets/getSeaBedTeamChip.png">
+                    <img v-if="dialogType==3" class="getChip" src="../assets/getBaoliChip.png">
                 </div>
                 <div class="u-yes">
                     <div class="yes" @click="getChipDialogIsShow=false">确定</div>
@@ -57,8 +57,9 @@ export default {
             hadTip: false,
             dialogChipImageUrl: "",
             chipImageUrl: "",
-            taskDesc: "",
-            taskName: ""
+            todayTaskDesc: "",
+            todayTaskName: "",
+            dialogType: 0,
         }
     },
     created: function() {
@@ -72,11 +73,12 @@ export default {
             return res.json()
         }).then((json) => {
             json = json.data
-            this.taskDesc = json.data.taskDesc
-            this.taskName = json.data.taskName
+            this.todayTaskDesc = json.data.taskDesc
+            this.todayTaskName = json.data.taskName
             this.hadComplete = json.data.hadComplete
             this.hadTip = json.data.hadTip
             if (json.data.hadComplete == true && json.data.hadTip == false) {
+                //此处逻辑待确认
                 this.getChipDialogIsShow = true
             }
         }).catch((error)=>{

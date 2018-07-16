@@ -24,7 +24,8 @@
       </div>
       <div class="u-scroller">
         <div class="u-peiqipig">
-          <img class="peiqi" src="../assets/peiqipig.png">
+          <img v-if="taskList[0].taskCurrent == true" class="peiqi" src="../assets/peiqipig.png" @click="toMissiondetail(taskList[0].taskPid)">
+          <img v-else class="peiqi" src="../assets/peiqipig.png">
           <img v-if="taskList[0].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[0].hadComplete == true && taskList[0].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
           <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 0" class="process" src="../assets/0.png">
@@ -34,10 +35,11 @@
           <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 4" class="process" src="../assets/4.png">
           <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 5" class="process" src="../assets/5.png">
           <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent != true" class="unselect" src="../assets/unselect.png">
-          <img v-else class="select" src="../assets/select.png" @click="selectMission(1)">
+          <img v-else class="select" src="../assets/select.png" @click="selectMission(0,taskList[0].taskPid)">
         </div>
         <div class="u-wangwangdog">
-          <img class="wangwangdog" src="../assets/wangwangdog.png">
+          <img v-if="taskList[1].taskCurrent == true" class="wangwangdog" src="../assets/wangwangdog.png" @click="toMissiondetail(taskList[0].taskPid)">
+          <img v-else class="wangwangdog" src="../assets/wangwangdog.png">
           <img v-if="taskList[1].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[1].hadComplete == true && taskList[1].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
           <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 0" class="process" src="../assets/0.png">
@@ -47,10 +49,11 @@
           <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 4" class="process" src="../assets/4.png">
           <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 5" class="process" src="../assets/5.png">
           <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent != true" class="unselect" src="../assets/unselect.png">
-          <img v-else class="select" src="../assets/select.png" @click="selectMission(1)">
+          <img v-else class="select" src="../assets/select.png" @click="selectMission(1,taskList[1].taskPid)">
         </div>
         <div class="u-seabedteam">
-          <img class="seabedteam" src="../assets/seabedteam.png">
+          <img v-if="taskList[2].taskCurrent == true" class="seabedteam" src="../assets/seabedteam.png">
+          <img v-else class="seabedteam" src="../assets/seabedteam.png">
           <img v-if="taskList[2].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[2].hadComplete == true && taskList[2].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
           <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 0" class="process" src="../assets/0.png">
@@ -60,10 +63,11 @@
           <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 4" class="process" src="../assets/4.png">
           <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 5" class="process" src="../assets/5.png">
           <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent != true" class="unselect" src="../assets/unselect.png">
-          <img v-else class="select" src="../assets/select.png" @click="selectMission(1)">
+          <img v-else class="select" src="../assets/select.png" @click="selectMission(2,taskList[2].taskPid)">
         </div>
         <div class="u-baolihorse">
-          <img class="baolihorse" src="../assets/baolihorse.png">
+          <img v-if="taskList[3].taskCurrent == true" class="baolihorse" src="../assets/baolihorse.png">
+          <img v-else class="baolihorse" src="../assets/baolihorse.png">
           <img v-if="taskList[3].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[3].hadComplete == true && taskList[3].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
           <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 0" class="process" src="../assets/0.png">
@@ -73,7 +77,7 @@
           <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 4" class="process" src="../assets/4.png">
           <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 5" class="process" src="../assets/5.png">
           <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent != true" class="unselect" src="../assets/unselect.png">
-          <img v-else class="select" src="../assets/select.png" @click="selectMission(1)">
+          <img v-else class="select" src="../assets/select.png" @click="selectMission(3,taskList[3].taskPid)">
         </div>
       </div>
     </div>
@@ -132,8 +136,8 @@ export default {
   name: 'index',
   data () {
     return {
+      taskPid: 0,
       childNum: 12312,
-      missionId: 0,
       ruleDialogIsShwo: false,
       confirmRole: false,
       congradulationDialogIsShow: false,
@@ -187,7 +191,8 @@ export default {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify(params)
     }).then((res) => {
       return res.json()
     }).then((json) => {
@@ -259,32 +264,57 @@ export default {
     changText(text) {
       this.confrimRoleText = text
     },
-    selectMission(id) {
-      switch(id) {
-        case 1: 
+    selectMission(dialogType, taskPid) {
+      switch(dialogType) {
+        case 0: 
           this.changText("确定选择角色为“小猪佩奇”么？")
-          this.missionId = 1;
+          this.taskPid = taskPid
+          this.confirmRole = true;
+          break;
+        case 1: 
+          this.changText("确定选择角色为“汪汪队”么？")
+          this.taskPid = taskPid
           this.confirmRole = true;
           break;
         case 2: 
-          this.changText("确定选择角色为“汪汪队”么？")
-          this.missionId = 2;
+          this.changText("确定选择角色为“海底小纵队”么？")
+          this.taskPid = taskPid
           this.confirmRole = true;
           break;
         case 3: 
-          this.changText("确定选择角色为“海底小纵队”么？")
-          this.missionId = 3;
-          this.confirmRole = true;
-          break;
-        case 4: 
           this.changText("确定选择角色为“小马宝莉”么？")
-          this.missionId = 4;
+          this.taskPid = taskPid
           this.confirmRole = true;
           break;
       }
     },
     lockMission() {
-      this.$router.push({ name: 'collect', params: { id: this.missionId }});
+      let params = {
+          "param":{
+            "deviceId":this.rokidId,
+            "taskPid": this.taskPid
+          }
+      }
+      fetch('/api/opt=selectTask', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      }).then((res) => {
+        return res.json()
+      }).then((json) => {
+        json = json.data
+        if (json.status == true) {
+          this.toMissiondetail(this.taskPid);
+        }
+      }).catch({
+
+      }) 
+      
+    },
+    toMissiondetail(taskPid) {
+      this.$router.push({ name: 'collect', params: { id: taskPid }});
     }
   }
 }
