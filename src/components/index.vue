@@ -25,19 +25,55 @@
       <div class="u-scroller">
         <div class="u-peiqipig">
           <img class="peiqi" src="../assets/peiqipig.png">
-          <img class="process" src="../assets/select.png" @click="selectMission(1)">
+          <img v-if="taskList[0].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
+          <img v-else-if="taskList[0].hadComplete == true && taskList[0].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 0" class="process" src="../assets/0.png">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 1" class="process" src="../assets/1.png">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 2" class="process" src="../assets/2.png">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 3" class="process" src="../assets/3.png">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 4" class="process" src="../assets/4.png">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 5" class="process" src="../assets/5.png">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent != true" class="unselect" src="../assets/unselect.png">
+          <img v-else class="select" src="../assets/select.png" @click="selectMission(1)">
         </div>
         <div class="u-wangwangdog">
           <img class="wangwangdog" src="../assets/wangwangdog.png">
-          <img class="process" src="../assets/select.png" @click="selectMission(2)">
+          <img v-if="taskList[1].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
+          <img v-else-if="taskList[1].hadComplete == true && taskList[1].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 0" class="process" src="../assets/0.png">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 1" class="process" src="../assets/1.png">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 2" class="process" src="../assets/2.png">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 3" class="process" src="../assets/3.png">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 4" class="process" src="../assets/4.png">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 5" class="process" src="../assets/5.png">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent != true" class="unselect" src="../assets/unselect.png">
+          <img v-else class="select" src="../assets/select.png" @click="selectMission(1)">
         </div>
         <div class="u-seabedteam">
           <img class="seabedteam" src="../assets/seabedteam.png">
-          <img class="process" src="../assets/select.png" @click="selectMission(3)">
+          <img v-if="taskList[2].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
+          <img v-else-if="taskList[2].hadComplete == true && taskList[2].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 0" class="process" src="../assets/0.png">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 1" class="process" src="../assets/1.png">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 2" class="process" src="../assets/2.png">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 3" class="process" src="../assets/3.png">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 4" class="process" src="../assets/4.png">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 5" class="process" src="../assets/5.png">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent != true" class="unselect" src="../assets/unselect.png">
+          <img v-else class="select" src="../assets/select.png" @click="selectMission(1)">
         </div>
         <div class="u-baolihorse">
           <img class="baolihorse" src="../assets/baolihorse.png">
-          <img class="process" src="../assets/select.png" @click="selectMission(4)">
+          <img v-if="taskList[3].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
+          <img v-else-if="taskList[3].hadComplete == true && taskList[3].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 0" class="process" src="../assets/0.png">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 1" class="process" src="../assets/1.png">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 2" class="process" src="../assets/2.png">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 3" class="process" src="../assets/3.png">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 4" class="process" src="../assets/4.png">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 5" class="process" src="../assets/5.png">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent != true" class="unselect" src="../assets/unselect.png">
+          <img v-else class="select" src="../assets/select.png" @click="selectMission(1)">
         </div>
       </div>
     </div>
@@ -50,6 +86,17 @@
       </div>
       <div class="u-libao">
         <img class="libao" src="../assets/libao.png">
+        <div v-if="hadCompleteAll==true" class="libaostatue">
+          <div><img class="libaotip" src="../assets/libaocomplete.png"></div>
+          <div><img class="getlibao" src="../assets/getlibaobtn.png"></div>
+        </div>
+        <div v-else class="libaoprocess">
+          <div><img v-if="libaoCompletedNum == 0" class="libaocompletenum" src="../assets/libao0.png"></div>
+          <div><img v-if="libaoCompletedNum == 1" class="libaocompletenum" src="../assets/libao1.png"></div>
+          <div><img v-if="libaoCompletedNum == 2" class="libaocompletenum" src="../assets/libao2.png"></div>
+          <div><img v-if="libaoCompletedNum == 3" class="libaocompletenum" src="../assets/libao3.png"></div>
+          <div><img class="libaotip2" src="../assets/libaotip2.png"></div>
+        </div>
       </div>
     </div>
     <transition name="fade">
@@ -89,16 +136,126 @@ export default {
       missionId: 0,
       ruleDialogIsShwo: false,
       confirmRole: false,
-      congradulationDialogIsShow: true,
-      confrimRoleText: '123'
+      congradulationDialogIsShow: false,
+      confrimRoleText: '123',
+      rokidId: '',
+      hadCompleteAll: false,
+      hadGetGift: false,
+      peiqiCompletedNum: 0,
+      wangCompletedNum: 0,
+      seaBedCompletedNum: 0,
+      baoliCompletedNum: 0,
+      libaoCompletedNum: 0,
+      hadDoingMission: false,
+      taskList:[
+            {
+                "taskPid":"",
+                "taskName":"",
+                "taskCurrent":"",
+                "hadComplete":"",
+                "hadGetDoll":"",
+            },{
+                "taskPid":"",
+                "taskName":"",
+                "taskCurrent":"",
+                "hadComplete":"",
+                "hadGetDoll":"",
+            },{
+                "taskPid":"",
+                "taskName":"",
+                "taskCurrent":"",
+                "hadComplete":"",
+                "hadGetDoll":"",
+            },{
+                "taskPid":"",
+                "taskName":"",
+                "taskCurrent":"",
+                "hadComplete":"",
+                "hadGetDoll":"",
+            }
+        ]
     }
   },
+  created: function() {
+    this.rokidId = "0201021740000464"
+    let params = {
+      "param":{
+        "deviceId":this.rokidId
+      }
+    }
+    fetch('/api/opt=taskList', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => {
+      return res.json()
+    }).then((json) => {
+      json = json.data
+      this.hadCompleteAll = json.data.hadCompleteAll
+      this.hadGetGift = json.data.hadGetGift
+      this.taskList = json.data.taskList
+      this.hadDoingMission = json.data.taskList[0].taskCurrent || json.data.taskList[1].taskCurrent || json.data.taskList[2].taskCurrent || json.data.taskList[3].taskCurrent
+      this.getPeiqiCompleteNum(json.data.taskList[0].taskChildList)
+      this.getWangwangCompleteNum(json.data.taskList[1].taskChildList)      
+      this.getSeaBedCompleteNum(json.data.taskList[2].taskChildList)
+      this.getHorseCompleteNum(json.data.taskList[3].taskChildList)      
+    }).catch((error)=>{
+      console.log(error)
+    })
+  },
   mounted: function() {
+
     document.getElementsByClassName("J-ruledialog")[0].addEventListener("click", function(event){
       event.stopPropagation(); 
     },false)
+
+    // window.taro.App.Account.getInfo(function(err, result) {
+    //     if (err) {
+    //         alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+    //     }
+
+    //     if (result) {
+    //         this.rokidId = result.rokidId
+    //     }
+    // });
   },
   methods: {
+    getPeiqiCompleteNum(peiqiList) {
+      for (let list of peiqiList) {
+        if(list.taskStatus == true) {
+          this.peiqiCompletedNum++;
+        }
+      }
+    },
+    getWangwangCompleteNum(wangwanglist) {
+      for (let list of wangwanglist) {
+        if(list.taskStatus == true) {
+          this.wangCompletedNum++;
+        }
+      }
+    },
+    getSeaBedCompleteNum(seabedlist) {
+      for (let list of seabedlist) {
+        if(list.taskStatus == true) {
+          this.seaBedCompletedNum++;
+        }
+      }
+    },
+    getHorseCompleteNum(horselist) {
+      for (let list of horselist) {
+        if(list.taskStatus == true) {
+          this.baoliCompletedNum++;
+        }
+      }
+    },
+    getLibaoCompleteNum(taskList) {
+      for (let list of taskList) {
+        if(list.hadComplete == true) {
+          this.libaoCompletedNum++;
+        }
+      }
+    },
     changText(text) {
       this.confrimRoleText = text
     },
@@ -201,10 +358,34 @@ export default {
         }
         // width: 4.24rem;
       }
+      .hadgetdoll {
+          position: absolute;
+          width: 1.1rem;
+          left: 1.665rem;
+          top: 5.09rem;
+      }
       .process {
           position: absolute;
+          width: 1.3rem;
+          left: 1.55rem;
+          top: 5.09rem;
+      }
+      .getDoll {
+          position: absolute;
           width: 2.74rem;
-          left: 0.85rem;
+          left: 0.84rem;
+          top: 4.86rem;
+      }
+      .select {
+          position: absolute;
+          width: 2.74rem;
+          left: 0.84rem;
+          top: 4.86rem;
+      }
+      .unselect {
+          position: absolute;
+          width: 2.74rem;
+          left: 0.84rem;
           top: 4.86rem;
       }
       .u-peiqipig {
@@ -240,11 +421,39 @@ export default {
       }
     }
     .u-libao {
+      height: 7rem;
+      overflow: hidden;
       position: absolute;
       left: 0.46rem;
       right: 0.46rem;
       .libao {
         width: 100%;
+      }
+      .libaostatue {
+        text-align: center;
+        .libaotip {
+          position: relative;
+          width: 7.593rem;
+          height: auto;
+          top: -2.4rem;
+        }
+        .getlibao {
+          position: relative;
+          top: -2.1rem;
+          width: 2.74rem;
+        }
+      }
+      .libaoprocess {
+        text-align: center;
+        .libaocompletenum {
+          position: relative;
+          top: -2.4rem;
+          width: 2.453rem;
+        }
+        .libaotip2 {
+          position: relative;
+          top: -2.1rem;
+        }
       }
     }
   }

@@ -1,0 +1,297 @@
+{
+  "taskList": {
+    "data": {
+      "hadCompleteAll": true,
+      "hadGetGift": false,
+      "taskList": [
+        {
+          "taskId": 1,
+          "taskPid": 0,
+          "taskName": "小猪佩奇1",
+          "taskCurrent": true,
+          "hadComplete": false,
+          "hadGetDoll": false,
+          "taskDesc": "小猪佩奇",
+          "taskImage": "https://cdn-image.rokid.com/test.jpg",
+          "taskChildList": [
+            {
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },{
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },{
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            }
+          ]
+        },{
+          "taskId": 1,
+          "taskPid": 0,
+          "taskName": "汪汪队",
+          "taskCurrent": false,
+          "hadComplete": true,
+          "hadGetDoll": false,
+          "taskDesc": "汪汪队",
+          "taskImage": "https://cdn-image.rokid.com/test.jpg",
+          "taskChildList": [
+            {
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },{
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            }
+          ]
+        },{
+          "taskId": 1,
+          "taskPid": 0,
+          "taskName": "海底小纵队",
+          "taskCurrent": false,
+          "hadComplete": true,
+          "hadGetDoll": false,
+          "taskDesc": "海底小纵队",
+          "taskImage": "https://cdn-image.rokid.com/test.jpg",
+          "taskChildList": [
+            {
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },{
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },{
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": true,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            }
+          ]
+        },{
+          "taskId": 1,
+          "taskPid": 0,
+          "taskName": "小马宝莉",
+          "taskCurrent": false,
+          "hadComplete": false,
+          "hadGetDoll": false,
+          "taskDesc": "小马宝莉",
+          "taskImage": "https://cdn-image.rokid.com/test.jpg",
+          "taskChildList": [
+            {
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },{
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },{
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    "message": "",
+    "status": true
+  },
+  "taskDetail": {
+    "data": {
+      "taskId": 1,
+      "taskPid": 0,
+      "taskName": "若琪，播放小猪佩奇第一集",
+      "taskCurrent": true,
+      "hadComplete": true,
+      "hadGetDoll": false,
+      "hadTip": false,
+      "taskDesc": "跟佩奇学习人际交往能力",
+      "taskImage": "https://cdn-image.rokid.com/test.jpg",
+      "chipImage": "https://cdn-image.rokid.com/test.jpg",
+      "taskChildList": [
+        {
+          "taskId": 5,
+          "taskPid": 1,
+          "taskName": "小猪佩奇第一集",
+          "taskStatus": true,
+          "taskDesc": "小猪佩奇第一集",
+          "taskImage": "https://cdn-image.rokid.com/test.jpg"
+        },
+        {
+          "taskId": 6,
+          "taskPid": 1,
+          "taskName": "小猪佩奇第二集",
+          "taskStatus": false,
+          "taskDesc": "小猪佩奇第二集",
+          "taskImage": "https://cdn-image.rokid.com/test.jpg"
+        }
+      ]
+    },
+    "message": "",
+    "status": true
+  },
+  "getDoll": {
+    "data": {},
+    "message": "",
+    "status": true
+  },
+  "getAddress": {
+    "data": {
+      "phone": "15918767888",
+      "contact": "小黄",
+      "address": "浙江省杭州市西湖区百家园88号",
+      "sex": 1,
+      "birthday": "1999-01-12"
+    },
+    "message": "",
+    "status": true
+  },
+  "selectTask": {
+    "data": {},
+    "message": "",
+    "status": true
+  }
+}

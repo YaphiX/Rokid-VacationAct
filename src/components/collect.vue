@@ -13,6 +13,10 @@
         <div class="m-todayMission">
             <div class="u-todayMission">
                 <img class="todayMission" src="../assets/todayMission.png">
+                <div class="taskDesc">{{taskDesc}}</div>
+                <div class="taskName">“{{taskName}}”</div>
+                <img v-if="hadComplete==false" class="missionprocess" src="../assets/missionprocess0.png">
+                <img v-if="hadComplete==true" class="missionprocess" src="../assets/missionprocess1.png">
             </div>
         </div>
         <div class="m-maybeListen">
@@ -29,10 +33,11 @@
         <transition name="fade">
             <div class="m-getChip" v-show="getChipDialogIsShow">
                 <div class="u-getChip">
-                    <img v-if="id==1" class="getChip" src="../assets/getPeiqiChip.png">
-                    <img v-if="id==2" class="getChip" src="../assets/getWangwangDogChip.png">
-                    <img v-if="id==3" class="getChip" src="../assets/getSeaBedTeamChip.png">
-                    <img v-if="id==4" class="getChip" src="../assets/getBaoliChip.png">
+                    <img class="chip" src="../assets/peiqichip.png">
+                    <img v-if="taskPid==1" class="getChip" src="../assets/getPeiqiChip.png">
+                    <img v-if="taskPid==2" class="getChip" src="../assets/getWangwangDogChip.png">
+                    <img v-if="taskPid==3" class="getChip" src="../assets/getSeaBedTeamChip.png">
+                    <img v-if="taskPid==4" class="getChip" src="../assets/getBaoliChip.png">
                 </div>
                 <div class="u-yes">
                     <div class="yes" @click="getChipDialogIsShow=false">确定</div>
@@ -42,19 +47,44 @@
     </div>
 </template>
 <script>
-    export default {
-        name: 'collect',
-        data() {
-            return {
-                getChipDialogIsShow: true,
-                id: 0
-            }
-        },
-        created: function() {
-            this.id = this.$route.params.id
+export default {
+    name: 'collect',
+    data() {
+        return {
+            getChipDialogIsShow: false,
+            taskPid: 0,
+            hadComplete: false,
+            hadTip: false,
+            dialogChipImageUrl: "",
+            chipImageUrl: "",
+            taskDesc: "",
+            taskName: ""
         }
-
+    },
+    created: function() {
+        this.taskPid = this.$route.params.id
+        fetch('/api/opt=taskDetail', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        }).then((res) => {
+            return res.json()
+        }).then((json) => {
+            json = json.data
+            this.taskDesc = json.data.taskDesc
+            this.taskName = json.data.taskName
+            this.hadComplete = json.data.hadComplete
+            this.hadTip = json.data.hadTip
+            if (json.data.hadComplete == true && json.data.hadTip == false) {
+                this.getChipDialogIsShow = true
+            }
+        }).catch((error)=>{
+            console.log(error)
+        })
     }
+
+}
 </script>
 <style scoped lang="scss">
 .g-container {
@@ -95,6 +125,30 @@
             .todayMission {
                 width: 100%;
             }
+            .taskDesc {
+                position: relative;
+                font-size: 0.346rem;
+                color: #979797;
+                font-weight: 500;
+                left: 2.6rem;
+                top: -3.75rem;
+            }
+            .taskName {
+                position: relative;
+                font-size: 0.453rem;
+                color: #4c4c4c;
+                font-weight: 500;
+                left: 0.87rem;
+                top: -3.5rem;
+            }
+            .missionprocess {
+                position: relative;
+                font-size: 0.453rem;
+                left: 0.87rem;
+                top: -2.6rem;
+                width: 7.546rem;
+                height: auto;
+            }
         }
     }
     .m-maybeListen {
@@ -124,9 +178,14 @@
         bottom: 0;
         background:rgba(0,0,0,0.4);
         .u-getChip {
-        position: relative;
-        top: 3.3rem;
-        text-align: center;
+            position: relative;
+            top: 3.3rem;
+            text-align: center;
+            .chip {
+                position: absolute;
+                top: 2.2rem;
+                left: 1.78rem;
+            }
             .getChip {
                 width: 8.933rem;
             }

@@ -10,6 +10,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+const express = require('express')
+const app = express()
+let appData = require('../mock/db.json')//加载本地数据文件
+let taskList = appData.taskList//获取对应的本地数据
+let taskDetail = appData.taskDetail
+let getDoll = appData.getDoll
+let getAddress = appData.getAddress
+let selectTask = appData.selectTask
+let apiRoutes = express.Router()
+app.use('/api', apiRoutes)
+
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
@@ -22,6 +33,38 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
+    before(app) {
+      app.post('/api/opt=taskList', function (req, res) {
+        res.json({
+          errno: 0,
+          data: taskList
+        });
+      });
+      app.post('/api/opt=taskDetail', function (req, res) {
+        res.json({
+          errno: 0,
+          data: taskDetail
+        });
+      });
+      app.post('/api/opt=getDoll', function (req, res) {
+        res.json({
+          errno: 0,
+          data: getDoll
+        });
+      });
+      app.post('/api/opt=getAddress', function (req, res) {
+        res.json({
+          errno: 0,
+          data: getAddress
+        });
+      });
+      app.post('/api/opt=selectTask', function (req, res) {
+        res.json({
+          errno: 0,
+          data: selectTask
+        });
+      });
+    },
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
@@ -88,7 +131,6 @@ module.exports = new Promise((resolve, reject) => {
         ? utils.createNotifierCallback()
         : undefined
       }))
-
       resolve(devWebpackConfig)
     }
   })
