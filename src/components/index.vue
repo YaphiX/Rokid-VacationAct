@@ -27,7 +27,7 @@
           <img v-if="taskList[0].taskCurrent == true" class="peiqi" src="../assets/peiqipig.png" @click="toMissiondetail(taskList[0].taskPid)">
           <img v-else class="peiqi" src="../assets/peiqipig.png">
           <img v-if="taskList[0].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
-          <img v-else-if="taskList[0].hadComplete == true && taskList[0].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
+          <img v-else-if="taskList[0].hadComplete == true && taskList[0].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(0, taskList[0].taskPid)">
           <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 0" class="process" src="../assets/0.png">
           <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 1" class="process" src="../assets/1.png">
           <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 2" class="process" src="../assets/2.png">
@@ -41,7 +41,7 @@
           <img v-if="taskList[1].taskCurrent == true" class="wangwangdog" src="../assets/wangwangdog.png" @click="toMissiondetail(taskList[0].taskPid)">
           <img v-else class="wangwangdog" src="../assets/wangwangdog.png">
           <img v-if="taskList[1].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
-          <img v-else-if="taskList[1].hadComplete == true && taskList[1].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
+          <img v-else-if="taskList[1].hadComplete == true && taskList[1].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(1, taskList[1].taskPid)">
           <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 0" class="process" src="../assets/0.png">
           <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 1" class="process" src="../assets/1.png">
           <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 2" class="process" src="../assets/2.png">
@@ -55,7 +55,7 @@
           <img v-if="taskList[2].taskCurrent == true" class="seabedteam" src="../assets/seabedteam.png">
           <img v-else class="seabedteam" src="../assets/seabedteam.png">
           <img v-if="taskList[2].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
-          <img v-else-if="taskList[2].hadComplete == true && taskList[2].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
+          <img v-else-if="taskList[2].hadComplete == true && taskList[2].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(2, taskList[2].taskPid)">
           <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 0" class="process" src="../assets/0.png">
           <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 1" class="process" src="../assets/1.png">
           <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 2" class="process" src="../assets/2.png">
@@ -69,7 +69,7 @@
           <img v-if="taskList[3].taskCurrent == true" class="baolihorse" src="../assets/baolihorse.png">
           <img v-else class="baolihorse" src="../assets/baolihorse.png">
           <img v-if="taskList[3].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
-          <img v-else-if="taskList[3].hadComplete == true && taskList[3].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png">
+          <img v-else-if="taskList[3].hadComplete == true && taskList[3].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(3, taskList[3].taskPid)">
           <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 0" class="process" src="../assets/0.png">
           <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 1" class="process" src="../assets/1.png">
           <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 2" class="process" src="../assets/2.png">
@@ -121,9 +121,20 @@
       </div>
     </transition>
     <transition name="fade">
+      <div class="m-failDialog" v-show="failDialogIsShow">
+        <div class="u-failDialog">
+          <img class="failDialog" src="../assets/failed.png">
+          <div class="yes" @click="failDialogIsShow=false;">重新选择角色</div>
+        </div>
+      </div>
+    </transition>
+    <transition name="fade">
       <div class="m-congradulationDialog" v-show="congradulationDialogIsShow">
         <div class="u-congradulationDialog">
-          <img class="congradulationDialog" src="../assets/gotBaoli.png">
+          <img v-if="dollType==0" class="congradulationDialog" src="../assets/gotPeiqi.png">
+          <img v-if="dollType==1" class="congradulationDialog" src="../assets/gotWangwangdog.png">
+          <img v-if="dollType==2" class="congradulationDialog" src="../assets/gotSeaBedTeam.png">
+          <img v-if="dollType==3" class="congradulationDialog" src="../assets/gotBaoli.png">
           <div class="yes" @click="congradulationDialogIsShow=false;">确认收货地址</div>
         </div>
       </div>
@@ -136,21 +147,23 @@ export default {
   name: 'index',
   data () {
     return {
-      taskPid: 0,
-      childNum: 12312,
-      ruleDialogIsShwo: false,
-      confirmRole: false,
-      congradulationDialogIsShow: false,
-      confrimRoleText: '123',
-      rokidId: '',
-      hadCompleteAll: false,
-      hadGetGift: false,
-      peiqiCompletedNum: 0,
-      wangCompletedNum: 0,
-      seaBedCompletedNum: 0,
-      baoliCompletedNum: 0,
-      libaoCompletedNum: 0,
-      hadDoingMission: false,
+      taskPid: 0, //当前选择的任务taskPid
+      childNum: 12312, //参与的数
+      ruleDialogIsShwo: false, //规则dialog
+      confirmRole: false, //确认选择dialog
+      congradulationDialogIsShow: false, //抽奖成功dialog
+      dollType: 0, //控制抽奖成功显示的玩偶
+      failDialogIsShow: false, //抽奖失败dialog
+      confrimRoleText: '123', //确认选择玩偶dialog上的文案
+      rokidId: '', //设备id
+      hadCompleteAll: false, //四个父人物是否都完成
+      hadGetGift: false, //是否领取神秘礼包
+      peiqiCompletedNum: 0, //佩奇任务完成数
+      wangCompletedNum: 0, //汪汪队任务完成数
+      seaBedCompletedNum: 0, //海底小纵队任务完成数
+      baoliCompletedNum: 0, //小马宝莉任务完成数
+      libaoCompletedNum: 0, //父任务完成数
+      hadDoingMission: false, //是否有正在进行的任务
       taskList:[
             {
                 "taskPid":"",
@@ -186,46 +199,53 @@ export default {
       "param":{
         "deviceId":this.rokidId
       }
-    }
-    fetch('/api/opt=taskList', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(params)
-    }).then((res) => {
-      return res.json()
-    }).then((json) => {
-      json = json.data
-      this.hadCompleteAll = json.data.hadCompleteAll
-      this.hadGetGift = json.data.hadGetGift
-      this.taskList = json.data.taskList
-      this.hadDoingMission = json.data.taskList[0].taskCurrent || json.data.taskList[1].taskCurrent || json.data.taskList[2].taskCurrent || json.data.taskList[3].taskCurrent
-      this.getPeiqiCompleteNum(json.data.taskList[0].taskChildList)
-      this.getWangwangCompleteNum(json.data.taskList[1].taskChildList)      
-      this.getSeaBedCompleteNum(json.data.taskList[2].taskChildList)
-      this.getHorseCompleteNum(json.data.taskList[3].taskChildList)      
-    }).catch((error)=>{
-      console.log(error)
-    })
+    };
+    this.getTaskList(params);
   },
   mounted: function() {
-
+    //去掉冒泡事件
     document.getElementsByClassName("J-ruledialog")[0].addEventListener("click", function(event){
       event.stopPropagation(); 
     },false)
-
-    // window.taro.App.Account.getInfo(function(err, result) {
-    //     if (err) {
-    //         alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
-    //     }
-
-    //     if (result) {
-    //         this.rokidId = result.rokidId
-    //     }
-    // });
   },
   methods: {
+    //获取RokidId
+    getRokidId() {
+      window.taro.App.Account.getInfo(function(err, result) {
+        if (err) {
+          alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+        }
+
+        if (result) {
+          this.rokidId = result.rokidId
+        }
+      });
+    },
+    //获取主页taskList
+    getTaskList(params) {
+      fetch('/api/opt=taskList', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      }).then((res) => {
+        return res.json()
+      }).then((json) => {
+        json = json.data
+        this.hadCompleteAll = json.data.hadCompleteAll
+        this.hadGetGift = json.data.hadGetGift
+        this.taskList = json.data.taskList
+        this.hadDoingMission = json.data.taskList[0].taskCurrent || json.data.taskList[1].taskCurrent || json.data.taskList[2].taskCurrent || json.data.taskList[3].taskCurrent
+        this.getPeiqiCompleteNum(json.data.taskList[0].taskChildList)
+        this.getWangwangCompleteNum(json.data.taskList[1].taskChildList)      
+        this.getSeaBedCompleteNum(json.data.taskList[2].taskChildList)
+        this.getHorseCompleteNum(json.data.taskList[3].taskChildList)      
+      }).catch((error)=>{
+        console.log(error)
+      })
+    },
+    //获取佩奇完成任务数
     getPeiqiCompleteNum(peiqiList) {
       for (let list of peiqiList) {
         if(list.taskStatus == true) {
@@ -233,6 +253,7 @@ export default {
         }
       }
     },
+    //获取汪汪队完成任务数
     getWangwangCompleteNum(wangwanglist) {
       for (let list of wangwanglist) {
         if(list.taskStatus == true) {
@@ -240,6 +261,7 @@ export default {
         }
       }
     },
+    //获取海底纵队任务完成数
     getSeaBedCompleteNum(seabedlist) {
       for (let list of seabedlist) {
         if(list.taskStatus == true) {
@@ -247,6 +269,7 @@ export default {
         }
       }
     },
+    //获取小马宝莉任务完成数
     getHorseCompleteNum(horselist) {
       for (let list of horselist) {
         if(list.taskStatus == true) {
@@ -254,6 +277,7 @@ export default {
         }
       }
     },
+    //获取礼包完成进度
     getLibaoCompleteNum(taskList) {
       for (let list of taskList) {
         if(list.hadComplete == true) {
@@ -261,9 +285,11 @@ export default {
         }
       }
     },
+    //更改确认选择玩偶后dialog的文案
     changText(text) {
       this.confrimRoleText = text
     },
+    //控制选择任务dialog
     selectMission(dialogType, taskPid) {
       switch(dialogType) {
         case 0: 
@@ -288,6 +314,7 @@ export default {
           break;
       }
     },
+    //锁定任务(选定任务)
     lockMission() {
       let params = {
           "param":{
@@ -311,10 +338,27 @@ export default {
       }).catch({
 
       }) 
-      
     },
+    //查看任务详情
     toMissiondetail(taskPid) {
       this.$router.push({ name: 'collect', params: { id: taskPid }});
+    },
+    //抽奖接口
+    lottery(taskPid) {
+      if (Math.random() <= 0.2) {
+        return true
+      } else {
+        return false
+      }
+    },
+    //领取玩偶
+    getDoll(dollType, taskPid) {
+      if (this.lottery(taskPid)) {
+        this.dollType = dollType;
+        this.congradulationDialogIsShow = true;
+      } else {
+        this.failDialogIsShow = true;
+      }
     }
   }
 }
@@ -565,6 +609,31 @@ export default {
         text-align: center;
         font-size: 0.4rem;
         color: #fe5c59;
+        // background-color: yellow;
+      }
+    }
+  }
+  .m-failDialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0,0,0.4);
+    .u-failDialog {
+      position: relative;
+      top: 3.3rem;
+      text-align: center;
+      .failDialog {
+        width: 8.933rem;
+      }
+      .yes {
+        position: relative;
+        top: -1.5rem;
+        line-height: 1.3rem;
+        text-align: center;
+        font-size: 0.4rem;
+        color: #838383;
         // background-color: yellow;
       }
     }
