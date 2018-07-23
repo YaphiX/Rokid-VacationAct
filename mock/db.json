@@ -2,14 +2,14 @@
   "taskList": {
     "data": {
       "hadCompleteAll": true,
-      "hadGetGift": false,
+      "hadGetGift": true,
       "taskList": [
         {
           "taskId": 1,
-          "taskPid": 0,
+          "taskPid": 1,
           "taskName": "小猪佩奇1",
           "taskCurrent": false,
-          "hadComplete": true,
+          "hadComplete": false,
           "hadGetDoll": false,
           "taskDesc": "小猪佩奇",
           "taskImage": "https://cdn-image.rokid.com/test.jpg",
@@ -18,7 +18,7 @@
               "taskId": 5,
               "taskPid": 1,
               "taskName": "小猪佩奇第一集",
-              "taskStatus": false,
+              "taskStatus": true,
               "taskDesc": "小猪佩奇第一集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             },
@@ -26,14 +26,14 @@
               "taskId": 6,
               "taskPid": 1,
               "taskName": "小猪佩奇第二集",
-              "taskStatus": false,
+              "taskStatus": true,
               "taskDesc": "小猪佩奇第二集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             },{
               "taskId": 5,
               "taskPid": 1,
               "taskName": "小猪佩奇第一集",
-              "taskStatus": false,
+              "taskStatus": true,
               "taskDesc": "小猪佩奇第一集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             },
@@ -41,14 +41,14 @@
               "taskId": 6,
               "taskPid": 1,
               "taskName": "小猪佩奇第二集",
-              "taskStatus": false,
+              "taskStatus": true,
               "taskDesc": "小猪佩奇第二集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             },{
               "taskId": 5,
               "taskPid": 1,
               "taskName": "小猪佩奇第一集",
-              "taskStatus": false,
+              "taskStatus": true,
               "taskDesc": "小猪佩奇第一集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             },
@@ -56,14 +56,14 @@
               "taskId": 6,
               "taskPid": 1,
               "taskName": "小猪佩奇第二集",
-              "taskStatus": false,
+              "taskStatus": true,
               "taskDesc": "小猪佩奇第二集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             }
           ]
         },{
           "taskId": 1,
-          "taskPid": 0,
+          "taskPid": 2,
           "taskName": "汪汪队",
           "taskCurrent": false,
           "hadComplete": true,
@@ -121,7 +121,7 @@
           ]
         },{
           "taskId": 1,
-          "taskPid": 0,
+          "taskPid": 3,
           "taskName": "海底小纵队",
           "taskCurrent": false,
           "hadComplete": true,
@@ -178,7 +178,7 @@
           ]
         },{
           "taskId": 1,
-          "taskPid": 0,
+          "taskPid": 4,
           "taskName": "小马宝莉",
           "taskCurrent": false,
           "hadComplete": true,
@@ -240,57 +240,144 @@
     "status": true
   },
   "taskDetail": {
+    "message": "",
+    "status": true,
     "data": {
-      "taskId": 1,
-      "taskPid": 0,
-      "taskName": "若琪，播放小猪佩奇第一集",
-      "taskCurrent": true,
-      "hadComplete": true,
+      "hadComplete": false,
       "hadGetDoll": false,
       "hadTip": false,
-      "taskDesc": "跟佩奇学习人际交往能力",
-      "taskImage": "https://cdn-image.rokid.com/test.jpg",
-      "chipImage": "https://cdn-image.rokid.com/test.jpg",
       "taskChildList": [
         {
+          "hadComplete": false,
+          "hadGetDoll": false,
+          "hadTip": true,
+          "taskCurrent": false,
+          "taskDesc": "播放小猪佩奇",
+          "taskFragImage": "https://s.rokidcdn.com/app/summerac/fragment/peppapig001.png",
           "taskId": 5,
+          "taskImage": "https://s.rokidcdn.com/app/summerac/peppapig/xiaozhupeiqi01.png",
+          "taskName": "播放小猪佩奇",
           "taskPid": 1,
-          "taskName": "小猪佩奇第一集",
+          "taskSeq": 1,
           "taskStatus": true,
-          "taskDesc": "小猪佩奇第一集",
-          "taskImage": "https://cdn-image.rokid.com/test.jpg"
+          "taskDate": "2018-07-22"
         },
         {
+          "hadComplete": false,
+          "hadGetDoll": false,
+          "hadTip": false,
+          "taskCurrent": false,
+          "taskDesc": "我要听凯叔讲故事",
+          "taskFragImage": "https://s.rokidcdn.com/app/summerac/fragment/peppapig002.png",
           "taskId": 6,
+          "taskImage": "https://s.rokidcdn.com/app/summerac/peppapig/xiaozhupeiqi02.png",
+          "taskName": "我要听凯叔讲故事",
           "taskPid": 1,
-          "taskName": "小猪佩奇第二集",
-          "taskStatus": false,
-          "taskDesc": "小猪佩奇第二集",
-          "taskImage": "https://cdn-image.rokid.com/test.jpg"
+          "taskSeq": 2,
+          "taskStatus": true,
+          "taskDate": "2018-07-23"
+        },
+        {
+          "hadComplete": false,
+          "hadGetDoll": false,
+          "hadTip": false,
+          "taskCurrent": false,
+          "taskDesc": "播放婷婷诗教",
+          "taskFragImage": "https://s.rokidcdn.com/app/summerac/fragment/peppapig003.png",
+          "taskId": 7,
+          "taskImage": "https://s.rokidcdn.com/app/summerac/peppapig/xiaozhupeiqi03.png",
+          "taskName": "播放婷婷诗教",
+          "taskPid": 1,
+          "taskSeq": 3,
+          "taskStatus": true,
+          "taskDate": "2018-07-24"
+        },
+        {
+          "hadComplete": false,
+          "hadGetDoll": false,
+          "hadTip": false,
+          "taskCurrent": false,
+          "taskDesc": "我要听不一样的卡梅拉",
+          "taskFragImage": "https://s.rokidcdn.com/app/summerac/fragment/peppapig004.png",
+          "taskId": 8,
+          "taskImage": "https://s.rokidcdn.com/app/summerac/peppapig/xiaozhupeiqi04.png",
+          "taskName": "我要听不一样的卡梅拉",
+          "taskPid": 1,
+          "taskSeq": 4,
+          "taskStatus": true,
+          "taskDate": "2018-07-25"
+        },
+        {
+          "hadComplete": false,
+          "hadGetDoll": false,
+          "hadTip": false,
+          "taskCurrent": false,
+          "taskDesc": "我要听巧虎唐诗",
+          "taskFragImage": "https://s.rokidcdn.com/app/summerac/fragment/peppapig005.png",
+          "taskId": 9,
+          "taskImage": "https://s.rokidcdn.com/app/summerac/peppapig/xiaozhupeiqi05.png",
+          "taskName": "我要听巧虎唐诗",
+          "taskPid": 1,
+          "taskSeq": 5,
+          "taskStatus": true,
+          "taskDate": "2018-07-26"
+        },
+        {
+          "hadComplete": false,
+          "hadGetDoll": false,
+          "hadTip": false,
+          "taskCurrent": false,
+          "taskDesc": "我要听猪猪侠的故事",
+          "taskFragImage": "https://s.rokidcdn.com/app/summerac/fragment/peppapig006.png",
+          "taskId": 10,
+          "taskImage": "https://s.rokidcdn.com/app/summerac/peppapig/xiaozhupeiqi06.png",
+          "taskName": "我要听猪猪侠的故事",
+          "taskPid": 1,
+          "taskSeq": 6,
+          "taskStatus": true,
+          "taskDate": "2018-07-27"
         }
-      ]
+      ],
+      "taskCurrent": false,
+      "taskDesc": "小猪佩奇",
+      "taskFragImage": "",
+      "taskId": 1,
+      "taskImage": "",
+      "taskName": "小猪佩奇",
+      "taskPid": 0,
+      "taskSeq": 1,
+      "taskStatus": false
+    },
+    "errorCode": 0
+  },
+  "getDoll": {
+    "data": {
+      "result": false
     },
     "message": "",
     "status": true
   },
-  "getDoll": {
+  "saveAddress": {
     "data": {},
     "message": "",
     "status": true
   },
   "getAddress": {
     "data": {
-      "phone": "15918767888",
-      "contact": "小黄",
-      "address": "浙江省杭州市西湖区百家园88号",
-      "sex": 1,
-      "birthday": "1999-01-12"
+     
     },
     "message": "",
     "status": true
   },
   "selectTask": {
     "data": {},
+    "message": "",
+    "status": true
+  },
+  "getGift": {
+    "data": {
+      "result": true
+    },
     "message": "",
     "status": true
   }

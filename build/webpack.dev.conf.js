@@ -16,8 +16,10 @@ let appData = require('../mock/db.json')//加载本地数据文件
 let taskList = appData.taskList//获取对应的本地数据
 let taskDetail = appData.taskDetail
 let getDoll = appData.getDoll
+let saveAddress = appData.saveAddress
 let getAddress = appData.getAddress
 let selectTask = appData.selectTask
+let getGift = appData.getGift
 let apiRoutes = express.Router()
 app.use('/api', apiRoutes)
 
@@ -34,34 +36,46 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // these devServer options should be customized in /config/index.js
   devServer: {
     before(app) {
-      app.post('/api/opt=taskList', function (req, res) {
+      app.post('/api/taskList', function (req, res) {
         res.json({
           errno: 0,
           data: taskList
         });
       });
-      app.post('/api/opt=taskDetail', function (req, res) {
+      app.post('/api/taskDetail', function (req, res) {
         res.json({
           errno: 0,
           data: taskDetail
         });
       });
-      app.post('/api/opt=getDoll', function (req, res) {
+      app.post('/api/getDoll', function (req, res) {
         res.json({
           errno: 0,
           data: getDoll
         });
       });
-      app.post('/api/opt=getAddress', function (req, res) {
+      app.post('/api/saveAddress', function (req, res) {
+        res.json({
+          errno: 0,
+          data: saveAddress
+        });
+      });
+      app.post('/api/getAddress', function (req, res) {
         res.json({
           errno: 0,
           data: getAddress
         });
       });
-      app.post('/api/opt=selectTask', function (req, res) {
+      app.post('/api/selectTask', function (req, res) {
         res.json({
           errno: 0,
           data: selectTask
+        });
+      });
+      app.post('/api/getGift', function (req, res) {
+        res.json({
+          errno: 0,
+          data: getGift
         });
       });
     },

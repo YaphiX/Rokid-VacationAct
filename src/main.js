@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import AwesomePicker from 'vue-awesome-picker';
 
+Vue.use(AwesomePicker);
 Vue.config.productionTip = false
 
 
