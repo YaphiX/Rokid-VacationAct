@@ -82,6 +82,9 @@
       </div>
     </div>
     <div class="m-giftpackage">
+      <div class="u-libaotext">
+        <img class="libaotext" src="../assets/libaotext.png">
+      </div>
       <div class="u-libaobtn">
         <img class="libaobtn" src="../assets/libaobtn.png">
       </div>
@@ -601,7 +604,7 @@ export default {
           "deviceId":this.rokidId
         }
       }
-      fetch('/api/getAddress', {
+      fetch(devUrl + '/api/getAddress', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
@@ -628,7 +631,7 @@ export default {
       let params = {
         "param": this.address
       }
-      fetch('/api/saveAddress', {
+      fetch(devUrl + '/api/saveAddress', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
@@ -771,7 +774,7 @@ export default {
     .u-libaotext {
       text-align: center;
       .libaotext {
-        width: 5.12rem;
+        width: 5.4rem;
       }
     }
     .u-libaobtn {
