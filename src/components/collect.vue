@@ -65,14 +65,18 @@ export default {
     },
     created: function() {
         this.dialogType = this.$route.params.id
-        // this.rokidId = "0201021740001646"
+        //release
         this.getRokidId().then((data)=>{
             this.rokidId = data
         }).then(()=>{
             this.getTaskDetail()
         })
-        this.tipsRandom()
-        this.maybelistenRandom()
+
+        //test
+        // this.rokidId = "0201021740001646"
+        // this.getTaskDetail()
+        // this.tipsRandom()
+        // this.maybelistenRandom()
         
     },
     methods: {
@@ -124,11 +128,11 @@ export default {
                 }
                 
             } else if (index < 6){
-                if (new Date("2018-07-28").toLocaleDateString().split('/').join('-') == new Date(data.taskChildList[index-1].taskDate).toLocaleDateString().split('/').join('-')) {
+                if (new Date().toLocaleDateString().split('/').join('-') == new Date(data.taskChildList[index-1].taskDate).toLocaleDateString().split('/').join('-')) {
                     this.todayTaskName = data.taskChildList[index-1].taskName
                     this.hadComplete = true
                 }
-                if (new Date(new Date("2018-07-28").toLocaleDateString().split('/').join('-')) > new Date(data.taskChildList[index-1].taskDate)) {
+                if (new Date(new Date().toLocaleDateString().split('/').join('-')) > new Date(data.taskChildList[index-1].taskDate)) {
                     this.todayTaskName = data.taskChildList[index].taskName
                     this.hadComplete = false
                 }

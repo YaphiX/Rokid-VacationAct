@@ -295,7 +295,7 @@ export default {
     }
   },
   created: function() {
-
+    release
     this.getRokidId().then((data)=>{
       this.rokidId = data
     }).then(()=>{
@@ -303,8 +303,10 @@ export default {
       this.getTaskList();
     })
 
+    //test
     // this.rokidId = "0201021740001646"
-    
+    // this.getChildNum()
+    // this.getTaskList();
     
   },
   mounted: function() {
@@ -471,11 +473,11 @@ export default {
     },
     
     //玩偶抽奖
-    getDoll(dollType, taskPid) {
+    getDoll(dollType, taskId) {
       let params = {
         "param":{
           "deviceId": this.rokidId,
-          "taskId":taskPid
+          "taskId":taskId
         }
       }
       fetch(devUrl + '/api/getDoll', {
