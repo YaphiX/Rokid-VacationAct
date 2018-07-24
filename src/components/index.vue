@@ -24,7 +24,7 @@
       </div>
       <div class="u-scroller">
         <div class="u-peiqipig">
-          <img v-if="taskList[0].taskCurrent == true || (peiqiCompletedNum == 6 && taskList[0].hadGetDoll == false)" class="peiqi" src="../assets/peiqipig.png" @click="toMissiondetail(taskList[0].taskPid)">
+          <img v-if="taskList[0].taskCurrent == true || (peiqiCompletedNum == 6 && taskList[0].hadGetDoll == false)" class="peiqi" src="../assets/peiqipig.png" @click="toMissiondetail(taskList[0].taskId)">
           <img v-else class="peiqi" src="../assets/peiqipig.png">
           <img v-if="taskList[0].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[0].hadComplete == true && taskList[0].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(0, taskList[0].taskId)">
@@ -38,7 +38,7 @@
           <img v-else class="select" src="../assets/select.png" @click="selectMission(0,taskList[0].taskId)">
         </div>
         <div class="u-wangwangdog">
-          <img v-if="taskList[1].taskCurrent == true" class="wangwangdog" src="../assets/wangwangdog.png" @click="toMissiondetail(taskList[0].taskPid)">
+          <img v-if="taskList[1].taskCurrent == true || (wangCompletedNum == 6 && taskList[1].hadGetDoll == false)" class="wangwangdog" src="../assets/wangwangdog.png" @click="toMissiondetail(taskList[1].taskId)">
           <img v-else class="wangwangdog" src="../assets/wangwangdog.png">
           <img v-if="taskList[1].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[1].hadComplete == true && taskList[1].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(1, taskList[1].taskId)">
@@ -52,7 +52,7 @@
           <img v-else class="select" src="../assets/select.png" @click="selectMission(1,taskList[1].taskId)">
         </div>
         <div class="u-seabedteam">
-          <img v-if="taskList[2].taskCurrent == true" class="seabedteam" src="../assets/seabedteam.png">
+          <img v-if="taskList[2].taskCurrent == true || (seaBedCompletedNum == 6 && taskList[2].hadGetDoll == false)" class="seabedteam" src="../assets/seabedteam.png" @click="toMissiondetail(taskList[2].taskId)">
           <img v-else class="seabedteam" src="../assets/seabedteam.png">
           <img v-if="taskList[2].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[2].hadComplete == true && taskList[2].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(2, taskList[2].taskId)">
@@ -66,7 +66,7 @@
           <img v-else class="select" src="../assets/select.png" @click="selectMission(2,taskList[2].taskId)">
         </div>
         <div class="u-baolihorse">
-          <img v-if="taskList[3].taskCurrent == true" class="baolihorse" src="../assets/baolihorse.png">
+          <img v-if="taskList[3].taskCurrent == true || (baoliCompletedNum == 6 && taskList[3].hadGetDoll == false)" class="baolihorse" src="../assets/baolihorse.png" @click="toMissiondetail(taskList[3].taskId)">
           <img v-else class="baolihorse" src="../assets/baolihorse.png">
           <img v-if="taskList[3].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[3].hadComplete == true && taskList[3].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(3, taskList[3].taskId)">
@@ -295,18 +295,18 @@ export default {
     }
   },
   created: function() {
-    release
-    this.getRokidId().then((data)=>{
-      this.rokidId = data
-    }).then(()=>{
-      this.getChildNum()
-      this.getTaskList();
-    })
+    // release
+    // this.getRokidId().then((data)=>{
+    //   this.rokidId = data
+    // }).then(()=>{
+    //   this.getChildNum()
+    //   this.getTaskList();
+    // })
 
     //test
-    // this.rokidId = "0201021740001646"
-    // this.getChildNum()
-    // this.getTaskList();
+    this.rokidId = "0201021740001646"
+    this.getChildNum()
+    this.getTaskList();
     
   },
   mounted: function() {
