@@ -299,17 +299,17 @@ export default {
   },
   created: function() {
     // release
-    // this.getRokidId().then((data)=>{
-    //   this.rokidId = data
-    // }).then(()=>{
-    //   this.getChildNum()
-    //   this.getTaskList();
-    // })
+    this.getRokidId().then((data)=>{
+      this.rokidId = data
+    }).then(()=>{
+      this.getChildNum()
+      this.getTaskList();
+    })
 
     //test
-    this.rokidId = "0201021740001646"
-    this.getChildNum()
-    this.getTaskList();
+    // this.rokidId = "0201021740001646"
+    // this.getChildNum()
+    // this.getTaskList();
     
   },
   mounted: function() {

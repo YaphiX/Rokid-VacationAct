@@ -66,16 +66,16 @@ export default {
     created: function() {
         this.dialogType = this.$route.params.id
         //release
-        // this.getRokidId().then((data)=>{
-        //     this.rokidId = data
-        // }).then(()=>{
-        //     this.getTaskDetail()
-        // })
+        this.getRokidId().then((data)=>{
+            this.rokidId = data
+        }).then(()=>{
+            this.getTaskDetail()
+        })
 
         //test
-        this.rokidId = "0201021740001646"
-        this.getTaskDetail()
-        
+        // this.rokidId = "0201021740001646"
+        // this.getTaskDetail()
+
         this.tipsRandom()
         this.maybelistenRandom()
         
