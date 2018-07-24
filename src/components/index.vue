@@ -822,7 +822,7 @@ export default {
         .libaotip3 {
           position: relative;
           top: -2rem;
-          width: 5.12rem;
+          width: 5.05rem;
         }
       }
     }
