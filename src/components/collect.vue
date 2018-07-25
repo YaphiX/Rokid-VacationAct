@@ -194,7 +194,7 @@ export default {
     overflow-x: hidden;
     .m-chipCollectArea {
         .u-chipCollectArea {
-            height: 6.6rem;
+            // height: 6.6rem;
             text-align: center;
             .chipCollectArea {
                 width: 100%;
@@ -222,7 +222,9 @@ export default {
     }
     .m-todayMission {
         .u-todayMission {
-            height: 4.17rem;
+            position: relative;
+            // top: 1rem;
+            // height: 4.17rem;
             .todayMission {
                 width: 100%;
             }
@@ -245,7 +247,8 @@ export default {
         }
     }
     .m-maybeListen {
-        height: 6.7355rem;
+        height: 7.3rem;
+        margin-top: -1rem;
         .u-maybeListen {
             .maybeListen {
                 width: 100%;
@@ -254,7 +257,8 @@ export default {
         .u-tts {
             position: relative;
             top: -5.3rem;
-            left: 0.865rem;
+            left: 1rem;
+            height: 7.4rem;
             p {
                 line-height: 1rem;
                 font-size: 0.4rem;
