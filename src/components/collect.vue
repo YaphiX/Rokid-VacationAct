@@ -65,17 +65,30 @@ export default {
     },
     created: function() {
         this.dialogType = this.$route.params.id
+
         //release
-        this.getRokidId().then((data)=>{
-            alert("设备id:" + data);
-            this.rokidId = data;
-        }).then(()=>{
-            this.getTaskDetail()
-        })
+        // this.getRokidId().then((data)=>{
+        //     alert("设备id:" + data);
+        //     this.rokidId = data;
+        // }).then(()=>{
+        //     this.getTaskDetail()
+        // })
 
         //test
         // this.rokidId = "0201021740001646"
         // this.getTaskDetail()
+
+        //REALEASE 1
+        window.taro.App.Account.getInfo(function(err, result) {
+        if (err) {
+            alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+        }
+        if (result) {
+            alert(result.rokidId)
+            this.rokidId = result.rokidId
+            this.getTaskList()
+        }
+        });
 
         this.tipsRandom()
         this.maybelistenRandom()
@@ -149,18 +162,18 @@ export default {
                 this.getChipDialogIsShow = data.taskChildList[index-1].hadTip
             }
         },
-        async getRokidId() {
-            return new Promise((resolve, reject) => {
-                window.taro.App.Account.getInfo(function(err, result) {
-                    if (err) {
-                        alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
-                    }
-                    if (result) {
-                        resolve(result.rokidId)
-                    }
-                });
-            })  
-        },
+        // async getRokidId() {
+        //     return new Promise((resolve, reject) => {
+        //         window.taro.App.Account.getInfo(function(err, result) {
+        //             if (err) {
+        //                 alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+        //             }
+        //             if (result) {
+        //                 resolve(result.rokidId)
+        //             }
+        //         });
+        //     })  
+        // },
         getTaskDetail() {
             let params = {
                 "param":{
