@@ -87,7 +87,7 @@ export default {
             if (result) {
                 alert(result.rokidId)
                 that.rokidId = result.rokidId
-                that.getTaskList()
+                that.getTaskDetail()
             }
         });
 
