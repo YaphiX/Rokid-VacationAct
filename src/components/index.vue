@@ -300,6 +300,7 @@ export default {
   created: function() {
     // release
     this.getRokidId().then((data)=>{
+      alert("设备id:" + data);
       this.rokidId = data
     }).then(()=>{
       this.getChildNum()

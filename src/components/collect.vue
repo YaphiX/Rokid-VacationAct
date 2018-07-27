@@ -67,7 +67,8 @@ export default {
         this.dialogType = this.$route.params.id
         //release
         this.getRokidId().then((data)=>{
-            this.rokidId = data
+            alert("设备id:" + data);
+            this.rokidId = data;
         }).then(()=>{
             this.getTaskDetail()
         })
