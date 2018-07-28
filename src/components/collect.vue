@@ -69,7 +69,7 @@ export default {
 
         //release
         this.getRokidId().then((data)=>{
-            alert("设备id:" + data);
+            alert(data);
             this.rokidId = data;
         }).then(()=>{
             this.getTaskDetail()
@@ -78,19 +78,6 @@ export default {
         //test
         // this.rokidId = "0201021740001646"
         // this.getTaskDetail()
-
-        //REALEASE 1
-        let that = this
-        window.taro.App.Account.getInfo(function(err, result) {
-            if (err) {
-                alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
-            }
-            if (result) {
-                alert(result.rokidId)
-                that.rokidId = result.rokidId
-                that.getTaskDetail()
-            }
-        });
 
         this.tipsRandom()
         this.maybelistenRandom()
