@@ -42,6 +42,7 @@
 import {maybelisten} from '../js/maybelisten.js';
 import {tips} from '../js/tips.js';
 import {devUrl} from '../js/url.js'
+import axios from 'axios';
 
 export default {
     name: 'collect',
@@ -65,10 +66,12 @@ export default {
     },
     created: function() {
         this.dialogType = this.$route.params.id
+
         //release
         this.getRokidId().then((data)=>{
             this.rokidId = data
         }).then(()=>{
+            console.log(this.rokidId)
             this.getTaskDetail()
         })
 
@@ -167,16 +170,9 @@ export default {
                     "taskPid": this.$route.params.id
                 }
             }
-            fetch(devUrl + '/api/taskDetail', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(params)
-            }).then((res) => {
-                return res.json()
-            }).then((json) => {
-                // json = json.data
+            axios.post(devUrl + '/api/taskDetail', params)
+            .then((res) => {
+                let json = res.data
                 this.judgeChipArea(json.data)
             }).catch((error)=>{
                 alert('当前活动参与人数过多，请多刷新几次页面~')

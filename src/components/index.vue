@@ -219,6 +219,7 @@
 <script>
 import areaData from 'vue-awesome-picker/src/area'
 import {devUrl} from '../js/url.js'
+import axios from 'axios';
 
 export default {
   name: 'index',
@@ -353,16 +354,9 @@ export default {
           "deviceId":this.rokidId
         }
       };
-      fetch(devUrl + '/api/taskList', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(params)
-      }).then((res) => {
-        return res.json()
-      }).then((json) => {
-        // json = json.data
+      axios.post(devUrl + '/api/taskList', params)
+      .then((res) => {
+        let json = res.data
         this.hadCompleteAll = json.data.hadCompleteAll
         this.hadGetGift = json.data.hadGetGift
         this.taskList = json.data.taskList
@@ -453,16 +447,9 @@ export default {
             "taskId": this.taskPid
           }
       }
-      fetch(devUrl + '/api/selectTask', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(params)
-      }).then((res) => {
-        return res.json()
-      }).then((json) => {
-        // json = json.data
+      axios.post(devUrl + '/api/selectTask', params)
+      .then((res) => {
+        let json = res.data
         if (json.status == true) {
           this.toMissiondetail(this.taskPid);
         }
@@ -483,16 +470,9 @@ export default {
           "taskId":taskId
         }
       }
-      fetch(devUrl + '/api/getDoll', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(params)
-      }).then((res) => {
-        return res.json()
-      }).then((json) => {
-        // json = json.data
+      axios.post(devUrl + '/api/getDoll', params)
+      .then((res) => {
+        let json = res.data
         if (json.data.result) {
           this.dollType = dollType;
           this.congradulationDialogIsShow = true;
@@ -501,8 +481,6 @@ export default {
           this.failDialogIsShow = true;
           this.getTaskList()
         }
-        // this.congradulationDialogIsShow = true;
-        
       }).catch((e) => {
         alert('当前活动参与人数过多，请多刷新几次页面~')
       }) 
@@ -514,16 +492,10 @@ export default {
           "deviceId": this.rokidId
         }
       }
-      fetch(devUrl + '/api/getGift', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(params)
-      }).then((res) => {
-        return res.json()
-      }).then((json) => {
-        // json = json.data
+      
+      axios.post(devUrl + '/api/getGift', params)
+      .then((res) => {
+        let json = res.data
         if (json.data.result) {
           this.dollType = dollType;
           this.congradulationDialogIsShow = true;
@@ -532,7 +504,6 @@ export default {
           this.failDialogIsShow = true;
           this.getTaskList()
         }
-        
       }).catch((e) => {
         alert('当前活动参与人数过多，请多刷新几次页面~')
       }) 
@@ -604,16 +575,9 @@ export default {
           "deviceId":this.rokidId
         }
       }
-      fetch(devUrl + '/api/getAddress', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(params)
-      }).then((res) => {
-        return res.json()
-      }).then((json) => {
-        // json = json.data
+      axios.post(devUrl + '/api/getAddress', params)
+      .then((res) => {
+        let json = res.data
         if (JSON.stringify(json.data) == "{}") {
           this.congradulationDialogIsShow = false;
           this.addressDialogIsShow = true
@@ -631,16 +595,9 @@ export default {
       let params = {
         "param": this.address
       }
-      fetch(devUrl + '/api/saveAddress', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(params)
-      }).then((res) => {
-        return res.json()
-      }).then((json) => {
-        // json = json.data
+      axios.post(devUrl + '/api/saveAddress', params)
+      .then((res) => {
+        let json = res.data
         if (json.status == true) {
           alert('确认收货地址成功！')
           this.confirmAddressDialogIsShow = false;
