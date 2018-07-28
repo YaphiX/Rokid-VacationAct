@@ -28,12 +28,12 @@
           <img v-else class="peiqi" src="../assets/peiqipig.png">
           <img v-if="taskList[0].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[0].hadComplete == true && taskList[0].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(0, taskList[0].taskId)">
-          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 0" class="process" src="../assets/0.png">
-          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 1" class="process" src="../assets/1.png">
-          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 2" class="process" src="../assets/2.png">
-          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 3" class="process" src="../assets/3.png">
-          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 4" class="process" src="../assets/4.png">
-          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 5" class="process" src="../assets/5.png">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 0" class="process" src="../assets/0.png" @click="toMissiondetail(taskList[0].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 1" class="process" src="../assets/1.png" @click="toMissiondetail(taskList[0].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 2" class="process" src="../assets/2.png" @click="toMissiondetail(taskList[0].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 3" class="process" src="../assets/3.png" @click="toMissiondetail(taskList[0].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 4" class="process" src="../assets/4.png" @click="toMissiondetail(taskList[0].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent == true && peiqiCompletedNum == 5" class="process" src="../assets/5.png" @click="toMissiondetail(taskList[0].taskId)">
           <img v-else-if="hadDoingMission == true && taskList[0].taskCurrent != true" class="unselect" src="../assets/unselect.png">
           <img v-else class="select" src="../assets/select.png" @click="selectMission(0,taskList[0].taskId)">
         </div>
@@ -42,12 +42,12 @@
           <img v-else class="wangwangdog" src="../assets/wangwangdog.png">
           <img v-if="taskList[1].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[1].hadComplete == true && taskList[1].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(1, taskList[1].taskId)">
-          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 0" class="process" src="../assets/0.png">
-          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 1" class="process" src="../assets/1.png">
-          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 2" class="process" src="../assets/2.png">
-          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 3" class="process" src="../assets/3.png">
-          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 4" class="process" src="../assets/4.png">
-          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 5" class="process" src="../assets/5.png">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 0" class="process" src="../assets/0.png" @click="toMissiondetail(taskList[1].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 1" class="process" src="../assets/1.png" @click="toMissiondetail(taskList[1].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 2" class="process" src="../assets/2.png" @click="toMissiondetail(taskList[1].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 3" class="process" src="../assets/3.png" @click="toMissiondetail(taskList[1].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 4" class="process" src="../assets/4.png" @click="toMissiondetail(taskList[1].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent == true && wangCompletedNum == 5" class="process" src="../assets/5.png" @click="toMissiondetail(taskList[1].taskId)">
           <img v-else-if="hadDoingMission == true && taskList[1].taskCurrent != true" class="unselect" src="../assets/unselect.png">
           <img v-else class="select" src="../assets/select.png" @click="selectMission(1,taskList[1].taskId)">
         </div>
@@ -56,12 +56,12 @@
           <img v-else class="seabedteam" src="../assets/seabedteam.png">
           <img v-if="taskList[2].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[2].hadComplete == true && taskList[2].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(2, taskList[2].taskId)">
-          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 0" class="process" src="../assets/0.png">
-          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 1" class="process" src="../assets/1.png">
-          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 2" class="process" src="../assets/2.png">
-          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 3" class="process" src="../assets/3.png">
-          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 4" class="process" src="../assets/4.png">
-          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 5" class="process" src="../assets/5.png">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 0" class="process" src="../assets/0.png" @click="toMissiondetail(taskList[2].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 1" class="process" src="../assets/1.png" @click="toMissiondetail(taskList[2].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 2" class="process" src="../assets/2.png" @click="toMissiondetail(taskList[2].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 3" class="process" src="../assets/3.png" @click="toMissiondetail(taskList[2].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 4" class="process" src="../assets/4.png" @click="toMissiondetail(taskList[2].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent == true && seaBedCompletedNum == 5" class="process" src="../assets/5.png" @click="toMissiondetail(taskList[2].taskId)">
           <img v-else-if="hadDoingMission == true && taskList[2].taskCurrent != true" class="unselect" src="../assets/unselect.png">
           <img v-else class="select" src="../assets/select.png" @click="selectMission(2,taskList[2].taskId)">
         </div>
@@ -70,12 +70,12 @@
           <img v-else class="baolihorse" src="../assets/baolihorse.png">
           <img v-if="taskList[3].hadGetDoll == true" class="hadgetdoll" src="../assets/hadGetDoll.png">
           <img v-else-if="taskList[3].hadComplete == true && taskList[3].hadGetDoll == false" class="getDoll" src="../assets/getDoll.png" @click="getDoll(3, taskList[3].taskId)">
-          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 0" class="process" src="../assets/0.png">
-          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 1" class="process" src="../assets/1.png">
-          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 2" class="process" src="../assets/2.png">
-          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 3" class="process" src="../assets/3.png">
-          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 4" class="process" src="../assets/4.png">
-          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 5" class="process" src="../assets/5.png">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 0" class="process" src="../assets/0.png" @click="getDoll(3, taskList[3].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 1" class="process" src="../assets/1.png" @click="getDoll(3, taskList[3].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 2" class="process" src="../assets/2.png" @click="getDoll(3, taskList[3].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 3" class="process" src="../assets/3.png" @click="getDoll(3, taskList[3].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 4" class="process" src="../assets/4.png" @click="getDoll(3, taskList[3].taskId)">
+          <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent == true && baoliCompletedNum == 5" class="process" src="../assets/5.png" @click="getDoll(3, taskList[3].taskId)">
           <img v-else-if="hadDoingMission == true && taskList[3].taskCurrent != true" class="unselect" src="../assets/unselect.png">
           <img v-else class="select" src="../assets/select.png" @click="selectMission(3,taskList[3].taskId)">
         </div>
