@@ -69,15 +69,28 @@ export default {
 
         //release
         this.getRokidId().then((data)=>{
-            this.rokidId = data
+            alert("设备id:" + data);
+            this.rokidId = data;
         }).then(()=>{
-            console.log(this.rokidId)
             this.getTaskDetail()
         })
 
         //test
         // this.rokidId = "0201021740001646"
         // this.getTaskDetail()
+
+        //REALEASE 1
+        let that = this
+        window.taro.App.Account.getInfo(function(err, result) {
+            if (err) {
+                alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+            }
+            if (result) {
+                alert(result.rokidId)
+                that.rokidId = result.rokidId
+                that.getTaskDetail()
+            }
+        });
 
         this.tipsRandom()
         this.maybelistenRandom()
@@ -151,18 +164,18 @@ export default {
                 this.getChipDialogIsShow = data.taskChildList[index-1].hadTip
             }
         },
-        async getRokidId() {
-            return new Promise((resolve, reject) => {
-                window.taro.App.Account.getInfo(function(err, result) {
-                    if (err) {
-                        alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
-                    }
-                    if (result) {
-                        resolve(result.rokidId)
-                    }
-                });
-            })  
-        },
+        // async getRokidId() {
+        //     return new Promise((resolve, reject) => {
+        //         window.taro.App.Account.getInfo(function(err, result) {
+        //             if (err) {
+        //                 alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+        //             }
+        //             if (result) {
+        //                 resolve(result.rokidId)
+        //             }
+        //         });
+        //     })  
+        // },
         getTaskDetail() {
             let params = {
                 "param":{
@@ -190,7 +203,7 @@ export default {
     overflow-x: hidden;
     .m-chipCollectArea {
         .u-chipCollectArea {
-            height: 6.6rem;
+            // height: 6.6rem;
             text-align: center;
             .chipCollectArea {
                 width: 100%;
@@ -218,7 +231,9 @@ export default {
     }
     .m-todayMission {
         .u-todayMission {
-            height: 4.17rem;
+            position: relative;
+            // top: 1rem;
+            // height: 4.17rem;
             .todayMission {
                 width: 100%;
             }
@@ -241,7 +256,8 @@ export default {
         }
     }
     .m-maybeListen {
-        height: 6.7355rem;
+        height: 7.3rem;
+        margin-top: -1rem;
         .u-maybeListen {
             .maybeListen {
                 width: 100%;
@@ -250,7 +266,8 @@ export default {
         .u-tts {
             position: relative;
             top: -5.3rem;
-            left: 0.865rem;
+            left: 1rem;
+            height: 7.4rem;
             p {
                 line-height: 1rem;
                 font-size: 0.4rem;

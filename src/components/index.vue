@@ -300,17 +300,31 @@ export default {
   },
   created: function() {
     // release
-    this.getRokidId().then((data)=>{
-      this.rokidId = data
-    }).then(()=>{
-      this.getChildNum()
-      this.getTaskList();
-    })
+    // this.getRokidId().then((data)=>{
+    //   alert("设备id:" + data);
+    //   this.rokidId = data
+    // }).then(()=>{
+    //   this.getChildNum()
+    //   this.getTaskList();
+    // })
 
     //test
     // this.rokidId = "0201021740001646"
     // this.getChildNum()
     // this.getTaskList();
+
+    //REALEASE 1
+    let that = this
+    window.taro.App.Account.getInfo(function(err, result) {
+      if (err) {
+        alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+      }
+      if (result) {
+        alert(result.rokidId)
+        that.rokidId = result.rokidId
+        that.getTaskList()
+      }
+    });
     
   },
   mounted: function() {
@@ -329,18 +343,18 @@ export default {
       // this.childNum = parseInt(Date.parse(new Date()) / 47000) - 32618144
     },
     //获取RokidId
-    async getRokidId() {
-      return new Promise((resolve, reject) => {
-        window.taro.App.Account.getInfo(function(err, result) {
-          if (err) {
-            alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
-          }
-          if (result) {
-            resolve(result.rokidId)
-          }
-        });
-      })  
-    },
+    // async getRokidId() {
+    //   return new Promise((resolve, reject) => {
+    //     window.taro.App.Account.getInfo(function(err, result) {
+    //       if (err) {
+    //         alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+    //       }
+    //       if (result) {
+    //         resolve(result.rokidId)
+    //       }
+    //     });
+    //   })  
+    // },
     //获取主页taskList
     getTaskList() {
       //每次数量需要初始化
