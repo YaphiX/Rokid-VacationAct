@@ -8,7 +8,8 @@
         <div class="m-todayMission">
             <div class="u-todayMission">
                 <img class="todayMission" src="../assets/todayMission.png">
-                <div class="taskName">“若琪，{{todayTaskName}}”</div>
+                <div class="taskName">“{{todayTaskName}}”</div>
+                <!-- <div class="taskName"></div> -->
                 <img v-if="hadComplete==false" class="missionprocess" src="../assets/missionprocess0.png">
                 <img v-if="hadComplete==true" class="missionprocess" src="../assets/missionprocess1.png">
             </div>
@@ -69,7 +70,6 @@ export default {
 
         //release
         this.getRokidId().then((data)=>{
-            alert(data);
             this.rokidId = data;
         }).then(()=>{
             this.getTaskDetail()
@@ -115,7 +115,7 @@ export default {
                 }
             }
             if (index == 0) {
-                this.todayTaskName = data.taskChildList[0].taskName
+                this.todayTaskName = "若琪，" + data.taskChildList[0].taskName
                 switch(parseInt(this.$route.params.id)) {
                     case 1:
                         document.getElementById('chipCollectArea').src = require('../assets/peiqi0.png');
@@ -133,18 +133,18 @@ export default {
                 
             } else if (index < 6){
                 if (new Date().toLocaleDateString().split('/').join('-') == new Date(data.taskChildList[index-1].taskDate).toLocaleDateString().split('/').join('-')) {
-                    this.todayTaskName = data.taskChildList[index-1].taskName
+                    this.todayTaskName = "若琪，" + data.taskChildList[index-1].taskName
                     this.hadComplete = true
                 }
-                if (new Date(new Date().toLocaleDateString().split('/').join('-')) > new Date(data.taskChildList[index-1].taskDate)) {
-                    this.todayTaskName = data.taskChildList[index].taskName
+                if (new Date(new Date().toLocaleDateString() + " 00:00:00") > new Date(data.taskChildList[index-1].taskDate)) {
+                    this.todayTaskName = "若琪，" + data.taskChildList[index].taskName
                     this.hadComplete = false
                 }
                 document.getElementById('chipCollectArea').src = data.taskChildList[index-1].taskImage
                 document.getElementById('chip').src = data.taskChildList[index-1].taskFragImage
                 this.getChipDialogIsShow = data.taskChildList[index-1].hadTip
             } else {
-                this.todayTaskName = data.taskChildList[index-1].taskName
+                this.todayTaskName = "若琪，" + data.taskChildList[index-1].taskName
                 this.hadComplete = true
                 document.getElementById('chipCollectArea').src = data.taskChildList[index-1].taskImage
                 document.getElementById('chip').src = data.taskChildList[index-1].taskFragImage

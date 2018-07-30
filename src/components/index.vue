@@ -291,7 +291,6 @@
     created: function() {
       // release
       this.getRokidId().then((data) => {
-        alert(data);
         this.rokidId = data
       }).then(() => {
         this.getChildNum()
@@ -315,9 +314,9 @@
     methods: {
       getChildNum() {
         //测试
-        this.childNum = parseInt(Date.parse(new Date()) / 47000) - 32596162
-        //从8月1日到8月30日人数增长5w5
-        // this.childNum = parseInt(Date.parse(new Date()) / 47000) - 32618144
+        // this.childNum = parseInt(Date.parse(new Date()) / 47000) - 32596162
+        // 从8月1日到8月30日人数增长5w5
+        this.childNum = parseInt(Date.parse(new Date()) / 47000) - 32615144
       },
       //获取RokidId
       async getRokidId() {
@@ -661,13 +660,19 @@
         }
       }
       .u-scroller {
-        -webkit-overflow-scrolling : touch;
+        &::-webkit-scrollbar {
+           display: none;
+        }
+        // height: 6rem;
+        // padding-bottom: 10rem;
         width: 100%;
-        display: inline;
+        // display: inline;
         white-space: nowrap;
         overflow-x: scroll;
         float: left;
         overflow-y: hidden;
+        -webkit-overflow-scrolling : touch;
+        
         div {
           display: inline-block;
           img {
