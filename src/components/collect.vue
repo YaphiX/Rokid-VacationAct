@@ -2,7 +2,7 @@
     <div class="g-container">
         <div class="m-chipCollectArea">
             <div class="u-chipCollectArea"> 
-                <img id="chipCollectArea" src="" class="chipCollectArea"/>
+                <img id="chipCollectArea" src="../assets/none.png" class="chipCollectArea"/>
             </div>
         </div>
         <div class="m-todayMission">
@@ -121,10 +121,10 @@ export default {
                         document.getElementById('chipCollectArea').src = require('../assets/peiqi0.png');
                         break;
                     case 2:
-                        document.getElementById('chipCollectArea').src = require('../assets/seabed0.png');
+                        document.getElementById('chipCollectArea').src = require('../assets/wangwangdog0.png');
                         break;
                     case 3:
-                        document.getElementById('chipCollectArea').src = require('../assets/wangwangdog0.png');
+                        document.getElementById('chipCollectArea').src = require('../assets/seabed0.png');
                         break;
                     case 4:
                         document.getElementById('chipCollectArea').src = require('../assets/baoli0.png');
@@ -170,7 +170,7 @@ export default {
                     "taskPid": this.$route.params.id
                 }
             }
-            axios.post(devUrl + '/api/taskDetail', params)
+            axios.post(devUrl + '/api/taskDetail', params, {timeout: 5000})
             .then((res) => {
                 let json = res.data
                 this.judgeChipArea(json.data)

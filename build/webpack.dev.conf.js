@@ -37,46 +37,25 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     before(app) {
       app.post('/api/taskList', function (req, res) {
-        res.json({
-          errno: 0,
-          data: taskList
-        });
+        res.json(taskList);
       });
       app.post('/api/taskDetail', function (req, res) {
-        res.json({
-          errno: 0,
-          data: taskDetail
-        });
+        res.json(taskDetail);
       });
       app.post('/api/getDoll', function (req, res) {
-        res.json({
-          errno: 0,
-          data: getDoll
-        });
+        res.json(getDoll);
       });
       app.post('/api/saveAddress', function (req, res) {
-        res.json({
-          errno: 0,
-          data: saveAddress
-        });
+        res.json(saveAddress);
       });
       app.post('/api/getAddress', function (req, res) {
-        res.json({
-          errno: 0,
-          data: getAddress
-        });
+        res.json(getAddress);
       });
       app.post('/api/selectTask', function (req, res) {
-        res.json({
-          errno: 0,
-          data: selectTask
-        });
+        res.json(selectTask);
       });
       app.post('/api/getGift', function (req, res) {
-        res.json({
-          errno: 0,
-          data: getGift
-        });
+        res.json(getGift);
       });
     },
     clientLogLevel: 'warning',

@@ -1,14 +1,14 @@
 {
   "taskList": {
     "data": {
-      "hadCompleteAll": true,
-      "hadGetGift": true,
+      "hadCompleteAll": false,
+      "hadGetGift": false,
       "taskList": [
         {
           "taskId": 1,
           "taskPid": 1,
           "taskName": "小猪佩奇1",
-          "taskCurrent": true,
+          "taskCurrent": false,
           "hadComplete": false,
           "hadGetDoll": false,
           "taskDesc": "小猪佩奇",
@@ -18,7 +18,7 @@
               "taskId": 5,
               "taskPid": 1,
               "taskName": "小猪佩奇第一集",
-              "taskStatus": true,
+              "taskStatus": false,
               "taskDesc": "小猪佩奇第一集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             },
@@ -26,22 +26,7 @@
               "taskId": 6,
               "taskPid": 1,
               "taskName": "小猪佩奇第二集",
-              "taskStatus": true,
-              "taskDesc": "小猪佩奇第二集",
-              "taskImage": "https://cdn-image.rokid.com/test.jpg"
-            },{
-              "taskId": 5,
-              "taskPid": 1,
-              "taskName": "小猪佩奇第一集",
-              "taskStatus": true,
-              "taskDesc": "小猪佩奇第一集",
-              "taskImage": "https://cdn-image.rokid.com/test.jpg"
-            },
-            {
-              "taskId": 6,
-              "taskPid": 1,
-              "taskName": "小猪佩奇第二集",
-              "taskStatus": true,
+              "taskStatus": false,
               "taskDesc": "小猪佩奇第二集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             },{
@@ -56,7 +41,22 @@
               "taskId": 6,
               "taskPid": 1,
               "taskName": "小猪佩奇第二集",
-              "taskStatus": true,
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第二集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },{
+              "taskId": 5,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第一集",
+              "taskStatus": false,
+              "taskDesc": "小猪佩奇第一集",
+              "taskImage": "https://cdn-image.rokid.com/test.jpg"
+            },
+            {
+              "taskId": 6,
+              "taskPid": 1,
+              "taskName": "小猪佩奇第二集",
+              "taskStatus": false,
               "taskDesc": "小猪佩奇第二集",
               "taskImage": "https://cdn-image.rokid.com/test.jpg"
             }
@@ -66,7 +66,7 @@
           "taskPid": 2,
           "taskName": "汪汪队",
           "taskCurrent": false,
-          "hadComplete": true,
+          "hadComplete": false,
           "hadGetDoll": false,
           "taskDesc": "汪汪队",
           "taskImage": "https://cdn-image.rokid.com/test.jpg",
@@ -124,7 +124,7 @@
           "taskPid": 3,
           "taskName": "海底小纵队",
           "taskCurrent": false,
-          "hadComplete": true,
+          "hadComplete": false,
           "hadGetDoll": false,
           "taskDesc": "海底小纵队",
           "taskImage": "https://cdn-image.rokid.com/test.jpg",
@@ -181,7 +181,7 @@
           "taskPid": 4,
           "taskName": "小马宝莉",
           "taskCurrent": false,
-          "hadComplete": true,
+          "hadComplete": false,
           "hadGetDoll": false,
           "taskDesc": "小马宝莉",
           "taskImage": "https://cdn-image.rokid.com/test.jpg",
@@ -250,7 +250,7 @@
         {
           "hadComplete": false,
           "hadGetDoll": false,
-          "hadTip": true,
+          "hadTip": false,
           "taskCurrent": false,
           "taskDesc": "播放小猪佩奇",
           "taskFragImage": "https://s.rokidcdn.com/app/summerac/fragment/peppapig001.png",
@@ -260,7 +260,7 @@
           "taskPid": 1,
           "taskSeq": 1,
           "taskStatus": true,
-          "taskDate": "2018-07-22"
+          "taskDate": "2018-07-29"
         },
         {
           "hadComplete": false,
@@ -275,7 +275,7 @@
           "taskPid": 1,
           "taskSeq": 2,
           "taskStatus": true,
-          "taskDate": "2018-07-23"
+          "taskDate": "2018-07-29"
         },
         {
           "hadComplete": false,
@@ -289,8 +289,8 @@
           "taskName": "播放婷婷诗教",
           "taskPid": 1,
           "taskSeq": 3,
-          "taskStatus": true,
-          "taskDate": "2018-07-24"
+          "taskStatus": false,
+          "taskDate": ""
         },
         {
           "hadComplete": false,
@@ -304,8 +304,8 @@
           "taskName": "我要听不一样的卡梅拉",
           "taskPid": 1,
           "taskSeq": 4,
-          "taskStatus": true,
-          "taskDate": "2018-07-25"
+          "taskStatus": false,
+          "taskDate": ""
         },
         {
           "hadComplete": false,
@@ -319,8 +319,8 @@
           "taskName": "我要听巧虎唐诗",
           "taskPid": 1,
           "taskSeq": 5,
-          "taskStatus": true,
-          "taskDate": "2018-07-26"
+          "taskStatus": false,
+          "taskDate": ""
         },
         {
           "hadComplete": false,
@@ -334,8 +334,8 @@
           "taskName": "我要听猪猪侠的故事",
           "taskPid": 1,
           "taskSeq": 6,
-          "taskStatus": true,
-          "taskDate": "2018-07-27"
+          "taskStatus": false,
+          "taskDate": ""
         }
       ],
       "taskCurrent": false,
