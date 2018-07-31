@@ -182,7 +182,7 @@
     <transition name="fade">
       <div class="m-confirmAddressDialog" v-show="confirmAddressDialogIsShow">
         <div class="u-addressDialog">
-          <img class="addressDialog" src="../assets/confirmAddressDialog.png">
+          <img class="addressDialog" src="../assets/confirmAddressDialog2.png">
           <div class="inputarea">
             <div class="name">{{address.contact}}</div>
             <div class="phone">{{address.phone}}</div>
@@ -491,7 +491,7 @@
         axios.post(devUrl + '/api/getGift', params, {timeout: 5000})
           .then((res) => {
             let json = res.data
-            if (json.data.result) {
+            if (json.data.result == true) {
               this.dollType = dollType;
               this.congradulationDialogIsShow = true;
               this.getTaskList()
@@ -560,7 +560,8 @@
         if (this.nameValidShow == false && this.phoneValidShow == false && this.addressValidShow == false && this.detailAddressValidShow == false) {
           this.address.deviceId = this.rokidId
           this.addressDialogIsShow = false;
-          this.confirmAddressDialogIsShow = true;
+          // this.confirmAddressDialogIsShow = true;
+          this.saveAddress();
         }
       },
       //确认收货地址
@@ -596,6 +597,7 @@
             if (json.status == true) {
               alert('确认收货地址成功！')
               this.confirmAddressDialogIsShow = false;
+              this.addressDialogIsShow = false;
               this.getTaskList();
             }
           }).catch((e) => {

@@ -1,7 +1,7 @@
 {
   "taskList": {
     "data": {
-      "hadCompleteAll": false,
+      "hadCompleteAll": true,
       "hadGetGift": false,
       "taskList": [
         {
@@ -9,7 +9,7 @@
           "taskPid": 1,
           "taskName": "小猪佩奇1",
           "taskCurrent": false,
-          "hadComplete": false,
+          "hadComplete": true,
           "hadGetDoll": false,
           "taskDesc": "小猪佩奇",
           "taskImage": "https://cdn-image.rokid.com/test.jpg",
@@ -361,7 +361,12 @@
   },
   "getAddress": {
     "data": {
-     
+      "phone": "15918767888",
+      "contact": "小黄",
+      "area": "浙江省杭州市西湖区",
+      "address": "百家园88号",
+      "sex": 1,
+      "birthday": "1999-01-12"
     },
     "message": "",
     "status": true
