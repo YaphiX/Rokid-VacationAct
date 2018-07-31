@@ -43,7 +43,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../summerAct'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: 'http://yyz.rokid.com/summerAct/',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps
