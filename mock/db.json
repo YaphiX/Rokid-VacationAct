@@ -9,7 +9,7 @@
           "taskPid": 1,
           "taskName": "小猪佩奇1",
           "taskCurrent": false,
-          "hadComplete": true,
+          "hadComplete": false,
           "hadGetDoll": false,
           "taskDesc": "小猪佩奇",
           "taskImage": "https://cdn-image.rokid.com/test.jpg",
@@ -248,9 +248,9 @@
       "hadTip": true,
       "taskChildList": [
         {
-          "hadComplete": false,
+          "hadComplete": true,
           "hadGetDoll": false,
-          "hadTip": false,
+          "hadTip": true,
           "taskCurrent": false,
           "taskDate": "2018-07-29",
           "taskDesc": "播放海底小纵队",
@@ -275,7 +275,7 @@
           "taskName": "播放爱探险的朵拉",
           "taskPid": 3,
           "taskSeq": 2,
-          "taskStatus": true
+          "taskStatus": false
         },
         {
           "hadComplete": false,
@@ -290,7 +290,7 @@
           "taskName": "我要听神奇校车的故事",
           "taskPid": 3,
           "taskSeq": 3,
-          "taskStatus": true
+          "taskStatus": false
         },
         {
           "hadComplete": false,

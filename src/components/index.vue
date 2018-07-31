@@ -119,8 +119,10 @@
         <div class="u-confirmRole J-confirmRole">
           <img class="confirmRole" src="../assets/confirmRole.png">
           <div class="confrimTip">{{confrimRoleText}}</div>
-          <div class="cancel" @click="confirmRole=false">取消</div>
-          <div class="yes" @click="confirmRole=false;lockMission()">确定</div>
+          <div class="btnarea">
+            <p class="cancel" @click="confirmRole=false">取消</p>
+            <p class="yes" @click="confirmRole=false;lockMission()">确定</p>
+          </div>
         </div>
       </div>
     </transition>
@@ -192,7 +194,7 @@
             <div class="birth">{{address.birthday}}</div>
           </div>
           <div class="yes" @click="saveAddress()">提交</div>
-          <div class="cancel" @click="confirmAddressDialogIsShow = false">取消</div>
+          <!-- <div class="cancel" @click="confirmAddressDialogIsShow = false">取消</div> -->
         </div>
       </div>
     </transition>
@@ -824,26 +826,38 @@
         .confirmRole {
           width: 8.933rem;
         }
-        .cancel {
-          position: relative;
-          left: 0.533rem;
-          top: -1.96rem;
-          width: 4.48rem;
-          line-height: 1.3rem;
-          font-size: 0.4rem;
-          color: #9b9b9b;
+        .btnarea {
+          width: 100%;
           // background-color: blue;
-        }
-        .yes {
+          display: inline-block;
+          // width: 50%;
           position: relative;
-          width: 4.45rem;
-          left: 5.013rem;
-          top: -3.26rem;
-          line-height: 1.3rem;
-          font-size: 0.4rem;
-          color: #f5a623;
-          // background-color: red
+          display: inline-block;
+          top: -1.88rem;
+          // white-space: nowrap;
+          .cancel {
+            position: relative;
+            left: 0.533rem;
+            // top: -1.96rem;
+            width: 4.48rem;
+            line-height: 1.3rem;
+            font-size: 0.4rem;
+            color: #9b9b9b;
+            // background-color: yellow;
+          }
+          .yes {
+            position: relative;
+            width: 4.45rem;
+            left: 5.013rem;
+            top: -1.3rem;
+            line-height: 1.3rem;
+            font-size: 0.4rem;
+            color: #f5a623;
+            // background-color: red
+          }
         }
+        
+        
       }
     }
     .m-congradulationDialog {
@@ -1104,8 +1118,8 @@
           position: relative;
           top: -1.5rem;
           line-height: 1.3rem;
-          width: 4rem;
-          left: 5rem;
+          // width: 5rem;
+          // left: 5rem;
           // text-align: center;
           font-size: 0.4rem;
           color: #408cff;

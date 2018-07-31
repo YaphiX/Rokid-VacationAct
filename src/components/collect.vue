@@ -142,13 +142,13 @@ export default {
                 }
                 document.getElementById('chipCollectArea').src = data.taskChildList[index-1].taskImage
                 document.getElementById('chip').src = data.taskChildList[index-1].taskFragImage
-                this.getChipDialogIsShow = data.taskChildList[index-1].hadTip
+                this.getChipDialogIsShow = !data.taskChildList[index-1].hadTip
             } else {
                 this.todayTaskName = "若琪，" + data.taskChildList[index-1].taskName
                 this.hadComplete = true
                 document.getElementById('chipCollectArea').src = data.taskChildList[index-1].taskImage
                 document.getElementById('chip').src = data.taskChildList[index-1].taskFragImage
-                this.getChipDialogIsShow = data.taskChildList[index-1].hadTip
+                this.getChipDialogIsShow = !data.taskChildList[index-1].hadTip
             }
         },
         async getRokidId() {
