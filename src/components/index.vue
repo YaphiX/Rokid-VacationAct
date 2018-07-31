@@ -182,7 +182,7 @@
     <transition name="fade">
       <div class="m-confirmAddressDialog" v-show="confirmAddressDialogIsShow">
         <div class="u-addressDialog">
-          <img class="addressDialog" src="../assets/confirmAddressDialog2.png">
+          <img class="addressDialog" src="../assets/confirmAddressDialog.png">
           <div class="inputarea">
             <div class="name">{{address.contact}}</div>
             <div class="phone">{{address.phone}}</div>
@@ -560,8 +560,8 @@
         if (this.nameValidShow == false && this.phoneValidShow == false && this.addressValidShow == false && this.detailAddressValidShow == false) {
           this.address.deviceId = this.rokidId
           this.addressDialogIsShow = false;
-          // this.confirmAddressDialogIsShow = true;
-          this.saveAddress();
+          this.confirmAddressDialogIsShow = true;
+          // this.saveAddress();
         }
       },
       //确认收货地址
@@ -575,9 +575,11 @@
           .then((res) => {
             let json = res.data
             if (JSON.stringify(json.data) == "{}") {
+              document.getElementsByClassName('addressDialog')[1].src = require("../assets/confirmAddressDialog.png")
               this.congradulationDialogIsShow = false;
               this.addressDialogIsShow = true
             } else {
+              document.getElementsByClassName('addressDialog')[1].src = require("../assets/confirmAddressDialog2.png")
               this.address = json.data
               this.congradulationDialogIsShow = false;
               this.confirmAddressDialogIsShow = true
