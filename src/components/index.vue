@@ -292,16 +292,19 @@
       }
     },
     created: function() {
-      // release
-      while (!window.taro){};
-      this.gshow = true;
-      this.getRokidId().then((data) => {
-        this.rokidId = data
-      }).then(() => {
-        this.getChildNum()
-        this.getTaskList();
-      })
-      
+      //release
+      const id = setInterval(() => {
+        if ('taro' in window) {
+          this.getRokidId().then((data) => {
+              this.rokidId = data
+              this.gshow = true
+          }).then(() => {
+              this.getChildNum()
+              this.getTaskList();
+          })
+          clearInterval(id)
+        }
+      },1000)
       //test
       // this.rokidId = "0201021740001646"
       // this.getChildNum()

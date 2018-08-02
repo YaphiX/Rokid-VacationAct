@@ -70,14 +70,17 @@ export default {
         this.dialogType = this.$route.params.id
 
         //release
-        while (!window.taro){};
-        this.gshow = true;
-        this.getRokidId().then((data) => {
-            this.rokidId = data
-            this.gshow = true
-        }).then(() => {
-            this.getTaskDetail();
-        })
+        const id = setInterval(() => {
+            if ('taro' in window) {
+                this.getRokidId().then((data) => {
+                    this.rokidId = data
+                    this.gshow = true
+                }).then(() => {
+                    this.getTaskDetail();
+                })
+                clearInterval(id)
+            }
+        },1000)
 
         //test
         // this.rokidId = "0201021740001646"
