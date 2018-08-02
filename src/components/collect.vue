@@ -1,5 +1,5 @@
 <template>
-    <div class="g-container">
+    <div v-show="gshow" class="g-container">
         <div class="m-chipCollectArea">
             <div class="u-chipCollectArea"> 
                 <img id="chipCollectArea" src="../assets/none.png" class="chipCollectArea"/>
@@ -49,6 +49,7 @@ export default {
     name: 'collect',
     data() {
         return {
+            gshow: false,
             rokidId: "",
             getChipDialogIsShow: false,
             taskPid: 0,
@@ -69,10 +70,13 @@ export default {
         this.dialogType = this.$route.params.id
 
         //release
-        this.getRokidId().then((data)=>{
-            this.rokidId = data;
-        }).then(()=>{
-            this.getTaskDetail()
+        while (!window.taro){};
+        this.gshow = true;
+        this.getRokidId().then((data) => {
+            this.rokidId = data
+            this.gshow = true
+        }).then(() => {
+            this.getTaskDetail();
         })
 
         //test
@@ -151,17 +155,21 @@ export default {
                 this.getChipDialogIsShow = !data.taskChildList[index-1].hadTip
             }
         },
-        async getRokidId() {
+        getRokidId() {
             return new Promise((resolve, reject) => {
-                window.taro.App.Account.getInfo(function(err, result) {
+                if (window.taro && window.taro.App && window.taro.App.Account && window.taro.App.Account.getInfo) {
+                    window.taro.App.Account.getInfo(function(err, result) {
                     if (err) {
                         alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
                     }
                     if (result) {
                         resolve(result.rokidId)
                     }
-                });
-            })  
+                    });
+                } else {
+                    alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+                }
+            })
         },
         getTaskDetail() {
             let params = {
@@ -170,7 +178,7 @@ export default {
                     "taskPid": this.$route.params.id
                 }
             }
-            axios.post(devUrl + '/api/taskDetail', params, {timeout: 5000,withCredentials: true})
+            axios.post(devUrl + '/api/taskDetail', params, {timeout: 5000,withCredentials: true, headers: {"Content-Type": "application/json; charset=utf-8"}})
             .then((res) => {
                 let json = res.data
                 this.judgeChipArea(json.data)

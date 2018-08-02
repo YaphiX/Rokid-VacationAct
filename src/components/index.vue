@@ -1,5 +1,5 @@
 <template>
-  <div class="g-container">
+  <div v-show="gshow" class="g-container">
     <div class="m-title">
       <div class="u-bubble">
         <img src="../assets/bubble.png">
@@ -219,6 +219,7 @@
     name: 'index',
     data() {
       return {
+        gshow: false,
         taskPid: 0, //当前选择的任务taskPid
         childNum: 12312, //参与的数
         ruleDialogIsShwo: false, //规则dialog
@@ -292,13 +293,15 @@
     },
     created: function() {
       // release
+      while (!window.taro){};
+      this.gshow = true;
       this.getRokidId().then((data) => {
         this.rokidId = data
       }).then(() => {
         this.getChildNum()
         this.getTaskList();
       })
-  
+      
       //test
       // this.rokidId = "0201021740001646"
       // this.getChildNum()
@@ -321,16 +324,21 @@
         this.childNum = parseInt(Date.parse(new Date()) / 47000) - 32615144
       },
       //获取RokidId
-      async getRokidId() {
+      getRokidId() {
         return new Promise((resolve, reject) => {
-          window.taro.App.Account.getInfo(function(err, result) {
-            if (err) {
-              alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+            if (window.taro && window.taro.App && window.taro.App.Account && window.taro.App.Account.getInfo) {
+                window.taro.App.Account.getInfo(function(err, result) {
+                  if (err) {
+                      alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
+                  }
+                  if (result) {
+                      resolve(result.rokidId)
+                  }
+                });
+            } else {
+                alert("未获取到当前设备信息, 请绑定设备后再次访问哦~")
             }
-            if (result) {
-              resolve(result.rokidId)
-            }
-          });
+            
         })
       },
       //获取主页taskList
@@ -346,7 +354,7 @@
             "deviceId": this.rokidId
           }
         };
-        axios.post(devUrl + '/api/taskList', params, {timeout: 5000, withCredentials: true})
+        axios.post(devUrl + '/api/taskList', params, {timeout: 5000, withCredentials: true, headers: {"Content-Type": "application/json; charset=utf-8"}})
           .then((res) => {
             let json = res.data
             this.hadCompleteAll = json.data.hadCompleteAll
@@ -439,7 +447,7 @@
             "taskId": this.taskPid
           }
         }
-        axios.post(devUrl + '/api/selectTask', params, {timeout: 5000, withCredentials: true})
+        axios.post(devUrl + '/api/selectTask', params, {timeout: 5000, withCredentials: true, headers: {"Content-Type": "application/json; charset=utf-8"}})
           .then((res) => {
             let json = res.data
             if (json.status == true) {
@@ -467,7 +475,7 @@
             "taskId": taskId
           }
         }
-        axios.post(devUrl + '/api/getDoll', params, {timeout: 5000, withCredentials: true})
+        axios.post(devUrl + '/api/getDoll', params, {timeout: 5000, withCredentials: true, headers: {"Content-Type": "application/json; charset=utf-8"}})
           .then((res) => {
             let json = res.data
             if (json.data.result) {
@@ -490,7 +498,7 @@
           }
         }
   
-        axios.post(devUrl + '/api/getGift', params, {timeout: 5000, withCredentials: true})
+        axios.post(devUrl + '/api/getGift', params, {timeout: 5000, withCredentials: true, headers: {"Content-Type": "application/json; charset=utf-8"}})
           .then((res) => {
             let json = res.data
             if (json.data.result == true) {
@@ -573,7 +581,7 @@
             "deviceId": this.rokidId
           }
         }
-        axios.post(devUrl + '/api/getAddress', params, {timeout: 5000, withCredentials: true})
+        axios.post(devUrl + '/api/getAddress', params, {timeout: 5000, withCredentials: true, headers: {"Content-Type": "application/json; charset=utf-8"}})
           .then((res) => {
             let json = res.data
             if (JSON.stringify(json.data) == "{}") {
@@ -595,7 +603,7 @@
         let params = {
           "param": this.address
         }
-        axios.post(devUrl + '/api/saveAddress', params, {timeout: 5000, withCredentials: true})
+        axios.post(devUrl + '/api/saveAddress', params, {timeout: 5000, withCredentials: true, headers: {"Content-Type": "application/json; charset=utf-8"}})
           .then((res) => {
             let json = res.data
             if (json.status == true) {
