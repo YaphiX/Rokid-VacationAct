@@ -346,7 +346,7 @@
             "deviceId": this.rokidId
           }
         };
-        axios.post(devUrl + '/api/taskList', params, {timeout: 5000})
+        axios.post(devUrl + '/api/taskList', params, {timeout: 5000, withCredentials: true})
           .then((res) => {
             let json = res.data
             this.hadCompleteAll = json.data.hadCompleteAll
@@ -439,7 +439,7 @@
             "taskId": this.taskPid
           }
         }
-        axios.post(devUrl + '/api/selectTask', params, {timeout: 5000})
+        axios.post(devUrl + '/api/selectTask', params, {timeout: 5000, withCredentials: true})
           .then((res) => {
             let json = res.data
             if (json.status == true) {
@@ -467,7 +467,7 @@
             "taskId": taskId
           }
         }
-        axios.post(devUrl + '/api/getDoll', params, {timeout: 5000})
+        axios.post(devUrl + '/api/getDoll', params, {timeout: 5000, withCredentials: true})
           .then((res) => {
             let json = res.data
             if (json.data.result) {
@@ -490,7 +490,7 @@
           }
         }
   
-        axios.post(devUrl + '/api/getGift', params, {timeout: 5000})
+        axios.post(devUrl + '/api/getGift', params, {timeout: 5000, withCredentials: true})
           .then((res) => {
             let json = res.data
             if (json.data.result == true) {
@@ -573,7 +573,7 @@
             "deviceId": this.rokidId
           }
         }
-        axios.post(devUrl + '/api/getAddress', params, {timeout: 5000})
+        axios.post(devUrl + '/api/getAddress', params, {timeout: 5000, withCredentials: true})
           .then((res) => {
             let json = res.data
             if (JSON.stringify(json.data) == "{}") {
@@ -595,7 +595,7 @@
         let params = {
           "param": this.address
         }
-        axios.post(devUrl + '/api/saveAddress', params, {timeout: 5000})
+        axios.post(devUrl + '/api/saveAddress', params, {timeout: 5000, withCredentials: true})
           .then((res) => {
             let json = res.data
             if (json.status == true) {

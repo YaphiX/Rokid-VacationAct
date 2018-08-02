@@ -170,7 +170,7 @@ export default {
                     "taskPid": this.$route.params.id
                 }
             }
-            axios.post(devUrl + '/api/taskDetail', params, {timeout: 5000})
+            axios.post(devUrl + '/api/taskDetail', params, {timeout: 5000,withCredentials: true})
             .then((res) => {
                 let json = res.data
                 this.judgeChipArea(json.data)
